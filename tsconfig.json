@@ -8,5 +8,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true
-  }
+  },
+  "types": ["jest", "styled-components-react-native"]
 }
