@@ -1,5 +1,5 @@
 import React from "react";
-import { AppLoading } from "expo";
+import AppLoading from "expo-app-loading";
 import { ThemeProvider } from "styled-components";
 
 import { Lato_400Regular } from "@expo-google-fonts/lato";
