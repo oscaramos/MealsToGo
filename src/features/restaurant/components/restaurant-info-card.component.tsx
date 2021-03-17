@@ -1,8 +1,7 @@
 import React from "react";
+// @ts-ignore
 import { range } from "lodash";
 import { SvgXml } from "react-native-svg";
-import styled from "styled-components/native";
-import { Card } from "react-native-paper";
 
 import { Spacer } from "../../../components/Spacer";
 import { Text } from "../../../components/typography/text.component";
@@ -10,53 +9,16 @@ import { Text } from "../../../components/typography/text.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
-const RestaurantCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const Info = styled(Card.Content)`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Title = styled.Text`
-  color: ${(props) => props.theme.colors.ui.primary};
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.title};
-`;
-
-const Address = styled.Text`
-  color: ${(props) => props.theme.colors.ui.primary};
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
-
-const Section = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Stars = styled.View`
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-const SectionEnd = styled.View``;
-
-const Image = styled.Image`
-  width: 15px;
-  height: 15px;
-`;
-
-const ClosedTemporallyText = styled.Text`
-  color: red;
-`;
+import {
+  Address,
+  Icon,
+  Info,
+  RestaurantCard,
+  RestaurantCardCover,
+  Section,
+  SectionEnd,
+  Stars,
+} from "./restaurant-info-card.styles";
 
 export function RestaurantInfoCard() {
   const title = "Some restaurant";
@@ -79,7 +41,7 @@ export function RestaurantInfoCard() {
         <Text variant="label">{title}</Text>
         <Section>
           <Stars>
-            {range(Math.floor(rating)).map((_, index) => (
+            {range(Math.floor(rating)).map((_: number, index: number) => (
               <SvgXml
                 key={`${title}-${index}`}
                 xml={star}
@@ -95,7 +57,7 @@ export function RestaurantInfoCard() {
             <Spacer position="left" size="large" />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             <Spacer position="left" size="large" />
-            <Image source={{ uri: icon }} />
+            <Icon source={{ uri: icon }} />
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
