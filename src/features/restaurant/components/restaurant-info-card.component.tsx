@@ -20,15 +20,20 @@ import {
   Stars,
 } from "./restaurant-info-card.styles";
 
-export function RestaurantInfoCard() {
-  const title = "Some restaurant";
-  const address = "Avenida Benito 102";
-  const rating = 3.2;
-  const isClosedTemporarily = false;
-  const isOpenNow = true;
-  const icon =
-    "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png";
+interface IRestaurantInfoCardProps {
+  item: {
+    title: string;
+    address: string;
+    rating: number;
+    isClosedTemporarily: boolean;
+    isOpenNow: boolean;
+    icon: string;
+  };
+}
 
+export function RestaurantInfoCard({
+  item: { title, address, rating, isClosedTemporarily, isOpenNow, icon },
+}: IRestaurantInfoCardProps) {
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover
