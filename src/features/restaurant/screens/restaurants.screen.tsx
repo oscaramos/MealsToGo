@@ -17,7 +17,7 @@ const SearchContainer = styled.View`
 
 const ListContainer = styled.View`
   flex-grow: 1;
-  background-color: green;
+  background-color: ${(props) => props.theme.colors.bg.primary};
   padding: ${(props) => props.theme.space[3]};
 `;
 
