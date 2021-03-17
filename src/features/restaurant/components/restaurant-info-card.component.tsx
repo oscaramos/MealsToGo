@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 
 import { Spacer } from "../../../components/Spacer";
+import { Text } from "../../../components/typography/text.component";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
@@ -75,7 +76,7 @@ export function RestaurantInfoCard() {
         }}
       />
       <Info>
-        <Title>{title}</Title>
+        <Text variant="label">{title}</Text>
         <Section>
           <Stars>
             {range(Math.floor(rating)).map((_, index) => (
@@ -89,9 +90,7 @@ export function RestaurantInfoCard() {
           </Stars>
           <SectionEnd>
             {isClosedTemporarily && (
-              <ClosedTemporallyText variant="label">
-                CLOSED TEMPORARILY
-              </ClosedTemporallyText>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
             <Spacer position="left" size="large" />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
