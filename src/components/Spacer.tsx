@@ -2,21 +2,21 @@ import React from "react";
 import styled from "styled-components/native";
 import { useTheme } from "styled-components/native";
 
-type sizeVariant = "small" | "medium" | "large";
-type positionVariant = "top" | "left" | "bottom" | "right";
+type sizeVariantTypes = "small" | "medium" | "large";
+type positionVariantTypes = "top" | "left" | "bottom" | "right";
 
 interface ISpacerProps {
-  position: positionVariant;
-  size: sizeVariant;
+  position: positionVariantTypes;
+  size: sizeVariantTypes;
 }
 
-const space: Record<sizeVariant, number> = {
+const sizeVariant: Record<sizeVariantTypes, number> = {
   small: 1,
   medium: 2,
   large: 3,
 };
 
-const margin: Record<positionVariant, string> = {
+const marginVariant: Record<positionVariantTypes, string> = {
   top: "margin-top",
   left: "margin-left",
   bottom: "margin-bottom",
@@ -33,7 +33,9 @@ const SpacerVariant = styled.View<ISpacerVariantProps>`
 
 export function Spacer({ position, size }: ISpacerProps) {
   const theme = useTheme();
-  const variant = `${margin[position]}: ${theme.space[space[size]]}`;
+  const variant = `${marginVariant[position]}: ${
+    theme.space[sizeVariant[size]]
+  }`;
 
   return <SpacerVariant variant={variant} />;
 }
