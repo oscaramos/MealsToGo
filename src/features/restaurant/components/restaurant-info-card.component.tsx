@@ -5,6 +5,7 @@ import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "../../../components/Spacer";
 import { Text } from "../../../components/typography/text.component";
+import { IRestaurantTransformed } from "../../../services/restaurants/restaurants";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
@@ -21,25 +22,25 @@ import {
 } from "./restaurant-info-card.styles";
 
 interface IRestaurantInfoCardProps {
-  item: {
-    title: string;
-    address: string;
-    rating: number;
-    isClosedTemporarily: boolean;
-    isOpenNow: boolean;
-    icon: string;
-  };
+  item: IRestaurantTransformed;
 }
 
 export function RestaurantInfoCard({
-  item: { title, address, rating, isClosedTemporarily, isOpenNow, icon },
+  item: {
+    name: title,
+    vicinity: address,
+    rating = 0,
+    isClosedTemporarily,
+    isOpenNow,
+    icon,
+    photo,
+  },
 }: IRestaurantInfoCardProps) {
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover
         source={{
-          uri:
-            "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
+          uri: photo,
         }}
       />
       <Info>

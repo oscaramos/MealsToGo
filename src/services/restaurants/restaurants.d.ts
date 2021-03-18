@@ -5,10 +5,6 @@ export interface IRestaurantsResponse {
   status: string;
 }
 
-export interface IRestaurantsTransformed extends IRestaurantsResponse {
-  results: IRestaurantTransformed[];
-}
-
 export interface IRestaurant {
   ix?: string;
   icon: string;
@@ -32,6 +28,7 @@ export interface IRestaurant {
 export interface IRestaurantTransformed extends IRestaurant {
   isOpenNow: boolean;
   isClosedTemporarily: boolean;
+  photo: string;
 }
 
 export interface Geometry {

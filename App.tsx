@@ -12,6 +12,7 @@ import { theme } from "./src/infrastructure/theme";
 
 import { MapScreen } from "./src/features/map/screens/map.screen";
 import { SettingsScreen } from "./src/features/settings/screens/settings.screen";
+import { RestaurantsProvider } from "./src/services/restaurants/restaurants.context";
 import { RestaurantsScreen } from "./src/features/restaurant/screens/restaurants.screen";
 
 type BottomNavigationProps = React.ComponentProps<typeof PaperBottomNavigation>;
@@ -60,13 +61,15 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <BottomNavigation
-        navigationState={{ index, routes }}
-        onIndexChange={setIndex}
-        renderScene={renderScene}
-        activeColor="red"
-        inactiveColor="gray"
-      />
+      <RestaurantsProvider>
+        <BottomNavigation
+          navigationState={{ index, routes }}
+          onIndexChange={setIndex}
+          renderScene={renderScene}
+          activeColor="red"
+          inactiveColor="gray"
+        />
+      </RestaurantsProvider>
     </ThemeProvider>
   );
 }
