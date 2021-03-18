@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FlatList } from "react-native";
+import { useTheme } from "styled-components";
 import styled from "styled-components/native";
-import { Searchbar } from "react-native-paper";
+import { ActivityIndicator, Searchbar } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
@@ -27,8 +28,15 @@ const RestaurantInfoCardContainer = styled.View`
   margin: ${(props) => props.theme.space[2]} ${(props) => props.theme.space[1]};
 `;
 
+const ActivityContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
 export function RestaurantsScreen() {
-  const { restaurants } = useRestaurants();
+  const theme = useTheme();
+  const { restaurants, loading } = useRestaurants();
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -43,17 +51,27 @@ export function RestaurantsScreen() {
           value={searchQuery}
         />
       </SearchContainer>
-      <RestaurantListContainer>
-        <FlatList
-          data={restaurants}
-          renderItem={(props) => (
-            <RestaurantInfoCardContainer>
-              <RestaurantInfoCard {...props} />
-            </RestaurantInfoCardContainer>
-          )}
-          keyExtractor={(item) => item.vicinity}
-        />
-      </RestaurantListContainer>
+      {loading ? (
+        <ActivityContainer>
+          <ActivityIndicator
+            size={50}
+            animating
+            color={theme.colors.brand.primary}
+          />
+        </ActivityContainer>
+      ) : (
+        <RestaurantListContainer>
+          <FlatList
+            data={restaurants}
+            renderItem={(props) => (
+              <RestaurantInfoCardContainer>
+                <RestaurantInfoCard {...props} />
+              </RestaurantInfoCardContainer>
+            )}
+            keyExtractor={(item) => item.vicinity}
+          />
+        </RestaurantListContainer>
+      )}
     </Container>
   );
 }
