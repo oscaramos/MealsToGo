@@ -1,3 +1,5 @@
+import { Coords } from "../services";
+
 export interface IRestaurantsResponse {
   html_attributions: any[];
   next_page_token: string;
@@ -18,10 +20,26 @@ export interface IRestaurant {
   price_level?: number;
   user_ratings_total?: number;
   permanently_closed?: boolean;
-  photos: Photo[];
-  geometry: Geometry;
-  plus_code: PlusCode;
-  opening_hours?: OpeningHours;
+  photos: {
+    height: number;
+    html_attributions: string[];
+    photo_reference: string;
+    width: number;
+  }[];
+  geometry: {
+    location: Coords;
+    viewport: {
+      northeast: Coords;
+      southwest: Coords;
+    };
+  };
+  plus_code: {
+    compound_code: string;
+    global_code: string;
+  };
+  opening_hours?: {
+    open_now: boolean;
+  };
   business_status?: "CLOSED_TEMPORARILY" | "OPERATIONAL";
 }
 
@@ -29,35 +47,4 @@ export interface IRestaurantTransformed extends IRestaurant {
   isOpenNow: boolean;
   isClosedTemporarily: boolean;
   photo: string;
-}
-
-export interface Geometry {
-  location: Location;
-  viewport: Viewport;
-}
-
-export interface Location {
-  lat: number;
-  lng: number;
-}
-
-export interface Viewport {
-  northeast: Location;
-  southwest: Location;
-}
-
-export interface OpeningHours {
-  open_now: boolean;
-}
-
-export interface Photo {
-  height: number;
-  html_attributions: string[];
-  photo_reference: string;
-  width: number;
-}
-
-export interface PlusCode {
-  compound_code: string;
-  global_code: string;
 }
