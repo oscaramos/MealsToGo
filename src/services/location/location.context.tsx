@@ -30,7 +30,7 @@ export function LocationProvider({ children }: ILocationProviderProps) {
     return { lat, lng };
   }, [searchTerm]);
 
-  const onSearch = (newSearchTerm: string = "antwerp") => {
+  const onSearch = (newSearchTerm: string) => {
     setSearchTerm(newSearchTerm);
   };
 

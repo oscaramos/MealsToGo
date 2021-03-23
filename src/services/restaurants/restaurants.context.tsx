@@ -29,8 +29,11 @@ export function RestaurantsProvider({ children }: IRestaurantProviderProps) {
   const { location } = useLocation();
 
   const { value: restaurants, loading, error } = useAsync(async () => {
+    if (!location) {
+      return [];
+    }
     const response = await restaurantsRequest(
-      `${location?.lat},${location?.lng}`
+      `${location.lat},${location.lng}`
     );
     return restaurantsTransform(response);
   }, [location]);
