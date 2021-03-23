@@ -2,22 +2,17 @@ import React from "react";
 import { FlatList } from "react-native";
 import { useTheme } from "styled-components";
 import styled from "styled-components/native";
+import { ActivityIndicator } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ActivityIndicator, Searchbar } from "react-native-paper";
 
+import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 import { useRestaurants } from "../../../services/restaurants/restaurants.context";
-import { useLocation } from "../../../services/location/location.context";
 
 const Container = styled(SafeAreaView)`
   flex: 1;
   flex-direction: column;
-`;
-
-const SearchContainer = styled.View`
-  flex-grow: 0;
-  padding: ${(props) => props.theme.space[3]};
 `;
 
 const RestaurantListContainer = styled.View`
@@ -38,20 +33,11 @@ const ActivityContainer = styled.View`
 
 export function RestaurantsScreen() {
   const theme = useTheme();
-  const { restaurants, loading: restaurantsLoading } = useRestaurants();
-  const { search, searchTerm, loading: locationLoading } = useLocation();
-
-  const loading = restaurantsLoading || locationLoading;
+  const { restaurants, loading } = useRestaurants();
 
   return (
     <Container>
-      <SearchContainer>
-        <Searchbar
-          placeholder="Location"
-          onChangeText={(query: string) => search(query)}
-          value={searchTerm}
-        />
-      </SearchContainer>
+      <Search />
       {loading ? (
         <ActivityContainer>
           <ActivityIndicator
