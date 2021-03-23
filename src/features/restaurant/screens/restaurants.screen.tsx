@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { FlatList } from "react-native";
 import { useTheme } from "styled-components";
 import styled from "styled-components/native";
-import { ActivityIndicator, Searchbar } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ActivityIndicator, Searchbar } from "react-native-paper";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+
 import { useRestaurants } from "../../../services/restaurants/restaurants.context";
+import { useLocation } from "../../../services/location/location.context";
 
 const Container = styled(SafeAreaView)`
   flex: 1;
@@ -36,19 +38,18 @@ const ActivityContainer = styled.View`
 
 export function RestaurantsScreen() {
   const theme = useTheme();
-  const { restaurants, loading } = useRestaurants();
+  const { restaurants, loading: restaurantsLoading } = useRestaurants();
+  const { search, searchTerm, loading: locationLoading } = useLocation();
 
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const onChangeSearch = (query: string) => setSearchQuery(query);
+  const loading = restaurantsLoading || locationLoading;
 
   return (
     <Container>
       <SearchContainer>
         <Searchbar
-          placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
+          placeholder="Location"
+          onChangeText={(query: string) => search(query)}
+          value={searchTerm}
         />
       </SearchContainer>
       {loading ? (

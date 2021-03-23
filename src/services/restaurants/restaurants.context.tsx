@@ -1,7 +1,11 @@
 import React from "react";
 import useAsync from "react-use/lib/useAsync";
 import { createContext, useContext } from "react";
+
 import { IRestaurantTransformed } from "./restaurants";
+
+import { useLocation } from "../location/location.context";
+
 import {
   restaurantsRequest,
   restaurantsTransform,
@@ -22,17 +26,23 @@ interface IRestaurantProviderProps {
 }
 
 export function RestaurantsProvider({ children }: IRestaurantProviderProps) {
-  const state = useAsync(async () => {
-    const response = await restaurantsRequest();
-    return restaurantsTransform(response);
-  });
+  const { location } = useLocation();
 
-  const restaurants = state.value;
-  const loading = state.loading;
-  const error = state.error?.message;
+  const { value: restaurants, loading, error } = useAsync(async () => {
+    const response = await restaurantsRequest(
+      `${location?.lat},${location?.lng}`
+    );
+    return restaurantsTransform(response);
+  }, [location]);
 
   return (
-    <RestaurantsContext.Provider value={{ restaurants, loading, error }}>
+    <RestaurantsContext.Provider
+      value={{
+        restaurants,
+        loading,
+        error: error?.message,
+      }}
+    >
       {children}
     </RestaurantsContext.Provider>
   );
