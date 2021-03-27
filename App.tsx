@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import styled from "styled-components/native";
+import React from "react";
 import { ThemeProvider } from "styled-components";
-import { BottomNavigation as PaperBottomNavigation } from "react-native-paper";
 
 import AppLoading from "expo-app-loading";
 import { Ionicons } from "@expo/vector-icons";
 import { Lato_400Regular } from "@expo-google-fonts/lato";
-import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
+import { Oswald_400Regular, useFonts } from "@expo-google-fonts/oswald";
 
 import { theme } from "./src/infrastructure/theme";
 
@@ -14,47 +12,36 @@ import { MapScreen } from "./src/features/map/screens/map.screen";
 import { SettingsScreen } from "./src/features/settings/screens/settings.screen";
 import { RestaurantsScreen } from "./src/features/restaurant/screens/restaurants.screen";
 
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import { LocationProvider } from "./src/services/location/location.context";
 import { RestaurantsProvider } from "./src/services/restaurants/restaurants.context";
+import { NavigationContainer } from "@react-navigation/native";
 
-type BottomNavigationProps = React.ComponentProps<typeof PaperBottomNavigation>;
-type Routes = BottomNavigationProps["navigationState"]["routes"];
+const Tab = createBottomTabNavigator();
 
-const BottomNavigation = styled(PaperBottomNavigation).attrs({
-  barStyle: { backgroundColor: "white" },
-})``;
+type CreateScreenOptionsFunction = React.ComponentProps<
+  typeof Tab.Navigator
+>["screenOptions"];
+
+type IoniconsValues = React.ComponentProps<typeof Ionicons>["name"];
+
+const TAB_ICON: Record<string, IoniconsValues> = {
+  restaurants: "restaurant",
+  map: "map",
+  settings: "settings",
+};
+
+const createScreenOptions: CreateScreenOptionsFunction = ({ route }) => ({
+  tabBarIcon: ({ color, size }) => {
+    return <Ionicons name={TAB_ICON[route.name]} size={size} color={color} />;
+  },
+});
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Oswald_400Regular,
     Lato_400Regular,
-  });
-
-  const [index, setIndex] = useState(0);
-  const [routes] = useState<Routes>([
-    {
-      key: "restaurants",
-      title: "Restaurants",
-      icon: ({ color }) => (
-        <Ionicons name="restaurant" size={24} color={color} />
-      ),
-    },
-    {
-      key: "map",
-      title: "Map",
-      icon: ({ color }) => <Ionicons name="map" size={24} color={color} />,
-    },
-    {
-      key: "settings",
-      title: "Settings",
-      icon: ({ color }) => <Ionicons name="settings" size={24} color={color} />,
-    },
-  ]);
-
-  const renderScene = BottomNavigation.SceneMap({
-    restaurants: RestaurantsScreen,
-    map: MapScreen,
-    settings: SettingsScreen,
   });
 
   if (!fontsLoaded) {
@@ -65,13 +52,19 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <LocationProvider>
         <RestaurantsProvider>
-          <BottomNavigation
-            navigationState={{ index, routes }}
-            onIndexChange={setIndex}
-            renderScene={renderScene}
-            activeColor="red"
-            inactiveColor="gray"
-          />
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={createScreenOptions}
+              tabBarOptions={{
+                activeTintColor: "tomato",
+                inactiveTintColor: "gray",
+              }}
+            >
+              <Tab.Screen name="restaurants" component={RestaurantsScreen} />
+              <Tab.Screen name="map" component={MapScreen} />
+              <Tab.Screen name="settings" component={SettingsScreen} />
+            </Tab.Navigator>
+          </NavigationContainer>
         </RestaurantsProvider>
       </LocationProvider>
     </ThemeProvider>
