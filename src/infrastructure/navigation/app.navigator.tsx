@@ -3,9 +3,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import { RestaurantsNavigator } from "./restaurants.navigator";
+
 import { MapScreen } from "../../features/map/screens/map.screen";
 import { SettingsScreen } from "../../features/settings/screens/settings.screen";
-import { RestaurantsScreen } from "../../features/restaurant/screens/restaurants.screen";
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +38,7 @@ export function AppNavigator() {
           inactiveTintColor: "gray",
         }}
       >
-        <Tab.Screen name="restaurants" component={RestaurantsScreen} />
+        <Tab.Screen name="restaurants" component={RestaurantsNavigator} />
         <Tab.Screen name="map" component={MapScreen} />
         <Tab.Screen name="settings" component={SettingsScreen} />
       </Tab.Navigator>

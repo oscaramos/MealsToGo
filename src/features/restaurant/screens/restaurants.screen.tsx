@@ -1,12 +1,15 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 import { useTheme } from "styled-components";
 import styled from "styled-components/native";
 import { ActivityIndicator } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+
+import { RestaurantsStackParamList } from "../../../infrastructure/navigation/restaurants.navigator";
 
 import { useRestaurants } from "../../../services/restaurants/restaurants.context";
 
@@ -31,7 +34,16 @@ const ActivityContainer = styled.View`
   align-items: center;
 `;
 
-export function RestaurantsScreen() {
+type ScreenNavigationProp = StackNavigationProp<
+  RestaurantsStackParamList,
+  "restaurants"
+>;
+
+type Props = {
+  navigation: ScreenNavigationProp;
+};
+
+export function RestaurantsScreen({ navigation }: Props) {
   const theme = useTheme();
   const { restaurants, loading } = useRestaurants();
 
@@ -52,7 +64,15 @@ export function RestaurantsScreen() {
             data={restaurants}
             renderItem={(props) => (
               <RestaurantInfoCardContainer>
-                <RestaurantInfoCard {...props} />
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("restaurant-details", {
+                      item: props.item,
+                    })
+                  }
+                >
+                  <RestaurantInfoCard {...props} />
+                </TouchableOpacity>
               </RestaurantInfoCardContainer>
             )}
             keyExtractor={(item) => item.vicinity}
