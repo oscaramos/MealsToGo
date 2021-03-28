@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { RestaurantsScreen } from "../../features/restaurant/screens/restaurants.screen";
 import {
   IRestaurantDetailsScreenProps,
@@ -15,7 +18,12 @@ const Tab = createStackNavigator<RestaurantsStackParamList>();
 
 export function RestaurantsNavigator() {
   return (
-    <Tab.Navigator headerMode="none">
+    <Tab.Navigator
+      headerMode="none"
+      screenOptions={() => ({
+        ...TransitionPresets.RevealFromBottomAndroid,
+      })}
+    >
       <Tab.Screen name="restaurants" component={RestaurantsScreen} />
       <Tab.Screen
         name="restaurant-details"
