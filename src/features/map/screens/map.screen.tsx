@@ -1,9 +1,9 @@
-import { Text } from "react-native";
 import styled from "styled-components/native";
 import React, { useEffect, useState } from "react";
 import MapView, { Callout, Marker } from "react-native-maps";
 
 import { Search } from "../components/search.component";
+import { CalloutMap } from "../components/callout-map.component";
 
 import { useLocation } from "../../../services/location/location.context";
 import { useRestaurants } from "../../../services/restaurants/restaurants.context";
@@ -50,11 +50,9 @@ export function MapScreen() {
               latitude: restaurant.geometry.location.lat,
               longitude: restaurant.geometry.location.lng,
             }}
-            title={restaurant.name}
-            description="okk"
           >
             <Callout>
-              <Text>Hello world</Text>
+              <CalloutMap restaurant={restaurant} />
             </Callout>
           </Marker>
         ))}
