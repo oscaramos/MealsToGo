@@ -1,4 +1,4 @@
-import { Coords } from "../services";
+import { Coords, ViewPort } from "../services";
 
 export interface LocationResponse {
   results: Location[];
@@ -8,9 +8,6 @@ export interface LocationResponse {
 export interface Location {
   geometry: {
     location: Coords;
-    viewport: {
-      northeast: Coords;
-      southwest: Coords;
-    };
+    viewport: ViewPort;
   };
 }

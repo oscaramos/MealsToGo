@@ -1,10 +1,64 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
+import styled from "styled-components/native";
+import React, { useEffect, useState } from "react";
+import MapView, { Callout, Marker } from "react-native-maps";
+
+import { Search } from "../components/search.component";
+
+import { useLocation } from "../../../services/location/location.context";
+import { useRestaurants } from "../../../services/restaurants/restaurants.context";
+
+const Map = styled(MapView)`
+  height: 100%;
+`;
 
 export function MapScreen() {
+  const [latDelta, setLatDelta] = useState(0);
+
+  const { location } = useLocation();
+
+  const {
+    lat = 0,
+    lng = 0,
+    viewport = { northeast: { lat: 0 }, southwest: { lat: 0 } },
+  } = location || {};
+
+  const { restaurants = [] } = useRestaurants();
+
+  useEffect(() => {
+    const northeastLat = viewport.northeast.lat;
+    const southwestLat = viewport.southwest.lat;
+
+    setLatDelta(northeastLat - southwestLat);
+  }, [viewport]);
+
   return (
-    <View>
-      <Text>MapScreen</Text>
-    </View>
+    <>
+      <Search />
+      <Map
+        region={{
+          latitude: lat,
+          longitude: lng,
+          latitudeDelta: latDelta,
+          longitudeDelta: 0.02,
+        }}
+      >
+        {restaurants.map((restaurant, index) => (
+          <Marker
+            key={`${restaurant.name}-${index}`}
+            coordinate={{
+              latitude: restaurant.geometry.location.lat,
+              longitude: restaurant.geometry.location.lng,
+            }}
+            title={restaurant.name}
+            description="okk"
+          >
+            <Callout>
+              <Text>Hello world</Text>
+            </Callout>
+          </Marker>
+        ))}
+      </Map>
+    </>
   );
 }

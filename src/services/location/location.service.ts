@@ -11,5 +11,6 @@ export const locationRequest = async (searchTerm: string) => {
 };
 
 export const locationTransform = (response: LocationResponse) => {
-  return response.results[0].geometry.location;
+  const geometry = response.results[0].geometry;
+  return { ...geometry.location, viewport: geometry.viewport };
 };
