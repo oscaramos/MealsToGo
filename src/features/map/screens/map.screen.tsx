@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import React, { useEffect, useState } from "react";
 import MapView, { Callout, Marker } from "react-native-maps";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import { Search } from "../components/search.component";
 import { CalloutMap } from "../components/callout-map.component";
@@ -8,11 +9,22 @@ import { CalloutMap } from "../components/callout-map.component";
 import { useLocation } from "../../../services/location/location.context";
 import { useRestaurants } from "../../../services/restaurants/restaurants.context";
 
+import { RestaurantsStackParamList } from "../../../infrastructure/navigation/restaurants.navigator";
+
 const Map = styled(MapView)`
   height: 100%;
 `;
 
-export function MapScreen() {
+type ScreenNavigationProp = StackNavigationProp<
+  RestaurantsStackParamList,
+  "restaurant-details"
+>;
+
+type Props = {
+  navigation: ScreenNavigationProp;
+};
+
+export function MapScreen({ navigation }: Props) {
   const [latDelta, setLatDelta] = useState(0);
 
   const { location } = useLocation();
@@ -51,7 +63,11 @@ export function MapScreen() {
               longitude: restaurant.geometry.location.lng,
             }}
           >
-            <Callout>
+            <Callout
+              onPress={() =>
+                navigation.navigate("restaurant-details", { item: restaurant })
+              }
+            >
               <CalloutMap restaurant={restaurant} />
             </Callout>
           </Marker>
