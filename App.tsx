@@ -9,6 +9,7 @@ import { theme } from "./src/infrastructure/theme";
 import { AppNavigation } from "./src/infrastructure/navigation/app.navigation";
 
 import { LocationProvider } from "./src/services/location/location.context";
+import { FavouritesProvider } from "./src/services/favourites/favourites.context";
 import { RestaurantsProvider } from "./src/services/restaurants/restaurants.context";
 
 export default function App() {
@@ -25,7 +26,9 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <LocationProvider>
         <RestaurantsProvider>
-          <AppNavigation />
+          <FavouritesProvider>
+            <AppNavigation />
+          </FavouritesProvider>
         </RestaurantsProvider>
       </LocationProvider>
     </ThemeProvider>

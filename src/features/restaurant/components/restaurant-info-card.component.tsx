@@ -1,10 +1,11 @@
 import React from "react";
-// @ts-ignore
 import { range } from "lodash";
 import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "../../../components/Spacer";
 import { Text } from "../../../components/typography/text.component";
+import { Favourite } from "../../../components/favourite/favourite.component";
+
 import { IRestaurantTransformed } from "../../../services/restaurants/restaurants";
 
 import star from "../../../../assets/star";
@@ -16,6 +17,7 @@ import {
   Info,
   RestaurantCard,
   RestaurantCardCover,
+  RestaurantCardCoverContainer,
   Section,
   SectionEnd,
   Stars,
@@ -25,8 +27,8 @@ interface IRestaurantInfoCardProps {
   item: IRestaurantTransformed;
 }
 
-export function RestaurantInfoCard({
-  item: {
+export function RestaurantInfoCard({ item }: IRestaurantInfoCardProps) {
+  const {
     name: title,
     vicinity: address,
     rating = 0,
@@ -34,15 +36,18 @@ export function RestaurantInfoCard({
     isOpenNow,
     icon,
     photo,
-  },
-}: IRestaurantInfoCardProps) {
+  } = item;
+
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover
-        source={{
-          uri: photo,
-        }}
-      />
+      <RestaurantCardCoverContainer>
+        <RestaurantCardCover
+          source={{
+            uri: photo,
+          }}
+        />
+        <Favourite restaurant={item} />
+      </RestaurantCardCoverContainer>
       <Info>
         <Text variant="label">{title}</Text>
         <Section>
