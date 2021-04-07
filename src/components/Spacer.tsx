@@ -5,10 +5,11 @@ import { useTheme } from "styled-components/native";
 type sizeVariantTypes = "small" | "medium" | "large";
 type positionVariantTypes = "top" | "left" | "bottom" | "right";
 
-interface ISpacerProps {
+type Props = {
   position: positionVariantTypes;
   size: sizeVariantTypes;
-}
+  children?: React.ReactNode;
+};
 
 const sizeVariant: Record<sizeVariantTypes, number> = {
   small: 1,
@@ -31,11 +32,11 @@ const SpacerVariant = styled.View<ISpacerVariantProps>`
   ${(props) => props.variant}
 `;
 
-export function Spacer({ position, size }: ISpacerProps) {
+export function Spacer({ position, size, children }: Props) {
   const theme = useTheme();
   const variant = `${marginVariant[position]}: ${
     theme.space[sizeVariant[size]]
   }`;
 
-  return <SpacerVariant variant={variant} />;
+  return <SpacerVariant variant={variant}>{children}</SpacerVariant>;
 }
