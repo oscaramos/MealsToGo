@@ -22,9 +22,15 @@ type Props = {
 export function FavouritesBar({ onDetail }: Props) {
   const { favourites } = useFavourites();
 
+  if (favourites.length === 0) {
+    return null;
+  }
+
   return (
     <Container>
-      <Text variant="body">Favourites</Text>
+      <Spacer position="left" size="small">
+        <Text variant="body">Favourites</Text>
+      </Spacer>
       <FlatList
         data={favourites}
         renderItem={({ item }) => (
