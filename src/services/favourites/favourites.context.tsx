@@ -1,4 +1,5 @@
-import React, { useState, createContext, useContext } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useState, createContext, useContext, useEffect } from "react";
 
 import { IRestaurantTransformed } from "../restaurants/restaurants";
 
@@ -35,6 +36,21 @@ export function FavouritesProvider({ children }: Props) {
       (favourite) => restaurant.place_id === favourite.place_id
     );
   };
+
+  // load favourites
+  useEffect(() => {
+    (async () => {
+      const storedFavourites = await AsyncStorage.getItem("@favourites");
+      if (storedFavourites) {
+        setFavourites(JSON.parse(storedFavourites));
+      }
+    })();
+  }, []);
+
+  // save favourites
+  useEffect(() => {
+    AsyncStorage.setItem("@favourites", JSON.stringify(favourites)).then();
+  }, [favourites]);
 
   return (
     <FavouritesContext.Provider
