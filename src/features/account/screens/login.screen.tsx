@@ -8,6 +8,8 @@ import {
   AccountCard,
   AuthButton,
   AuthTextInput,
+  ErrorContainer,
+  Title,
 } from "../components/account.styles";
 import { Spacer } from "../../../components/Spacer";
 import { useAuthentication } from "../../../services/authentication/authentication.context";
@@ -44,6 +46,7 @@ export function LoginScreen({ navigation }: Props) {
   return (
     <Container>
       <AccountBackground>
+        <Title>Meals To Go</Title>
         <AccountCard>
           <AuthTextInput
             label="Email"
@@ -62,13 +65,18 @@ export function LoginScreen({ navigation }: Props) {
             autoCapitalize="none"
             onChangeText={(text) => setPassword(text)}
           />
-          <Spacer position="bottom" size="large">
+          <ErrorContainer>
             {error ? <Text variant="error">{error}</Text> : null}
-          </Spacer>
+          </ErrorContainer>
           <AuthButton mode="contained" onPress={handleLogin}>
             Login
           </AuthButton>
         </AccountCard>
+        <Spacer position="top" size="large">
+          <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+            Back
+          </AuthButton>
+        </Spacer>
       </AccountBackground>
     </Container>
   );

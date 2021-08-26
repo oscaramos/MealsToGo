@@ -7,6 +7,7 @@ import {
   AccountBackground,
   AccountCard,
   AuthButton,
+  Title,
 } from "../components/account.styles";
 import { Spacer } from "../../../components/Spacer";
 
@@ -27,6 +28,7 @@ export function AccountScreen({ navigation }: Props) {
   return (
     <Container>
       <AccountBackground>
+        <Title>Meals To Go</Title>
         <AccountCard>
           <AuthButton
             mode="contained"
