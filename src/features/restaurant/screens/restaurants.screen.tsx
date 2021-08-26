@@ -32,7 +32,7 @@ export function RestaurantsScreen({ navigation }: Props) {
 
   const { restaurants, loading } = useRestaurants();
 
-  const [openFavouritesBar, setOpenFavouritesBar] = useState(true);
+  const [openFavouritesBar, setOpenFavouritesBar] = useState(false);
 
   return (
     <Container>
