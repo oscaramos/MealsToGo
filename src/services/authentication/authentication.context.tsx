@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import {
   authenticationRequest,
+  registerRequest,
   unAuthenticationRequest,
 } from "./authentication.service";
 import { auth } from "../firebase";
@@ -13,6 +14,7 @@ interface IAuthenticationReturn {
   loading: boolean;
   error: string;
   login: (email: string, password: string) => Promise<void>;
+  register: (email: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -38,6 +40,14 @@ export function AuthenticationProvider({
     }
   };
 
+  const register = async (email: string, password: string) => {
+    try {
+      await registerRequest(email, password);
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+
   const logout = async () => {
     await unAuthenticationRequest();
   };
@@ -49,6 +59,7 @@ export function AuthenticationProvider({
         loading,
         error,
         login,
+        register,
         logout,
       }}
     >
