@@ -31,16 +31,18 @@ export function AccountScreen({ navigation }: Props) {
         <Card>
           <AuthButton
             mode="contained"
+            icon="lock-open-outline"
             onPress={() => navigation.navigate("login")}
           >
             Login
           </AuthButton>
           <Spacer size="large" position="bottom" />
           <AuthButton
+            icon="email"
             mode="contained"
             onPress={() => navigation.navigate("register")}
           >
-            Create an account
+            Register
           </AuthButton>
         </Card>
       </AccountBackground>
