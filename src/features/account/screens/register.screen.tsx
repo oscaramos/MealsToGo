@@ -14,7 +14,7 @@ const Button = styled(RNButton)``;
 
 const Card = styled.View`
   background-color: rgba(255, 255, 255, 0.3);
-  padding: ${(props) => props.theme.sizes[1]};
+  padding: ${(props) => props.theme.sizes[2]};
 `;
 
 type ScreenNavigationProp = StackNavigationProp<
