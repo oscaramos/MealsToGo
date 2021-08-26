@@ -68,7 +68,11 @@ export function LoginScreen({ navigation }: Props) {
           <ErrorContainer>
             {error ? <Text variant="error">{error}</Text> : null}
           </ErrorContainer>
-          <AuthButton mode="contained" onPress={handleLogin}>
+          <AuthButton
+            mode="contained"
+            icon="lock-open-outline"
+            onPress={handleLogin}
+          >
             Login
           </AuthButton>
         </AccountCard>
