@@ -9,7 +9,7 @@ export const AppNavigation = () => {
 
   useEffect(() => {
     // login("test@test.com", "password123");
-    // logout();
+    logout();
   }, []);
 
   return !user ? <AuthenticationNavigator /> : <AppNavigator />;

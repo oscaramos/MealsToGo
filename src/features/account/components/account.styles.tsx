@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 import styled from "styled-components/native";
 
 import { colors } from "../../../infrastructure/theme/colors";
@@ -43,4 +43,8 @@ export function AccountBackground({ children }: AccountBackgroundProps) {
 export const AccountCard = styled.View`
   background-color: rgba(255, 255, 255, 0.3);
   padding: ${(props) => props.theme.sizes[1]};
+`;
+
+export const AuthTextInput = styled(TextInput)`
+  width: 300px;
 `;
