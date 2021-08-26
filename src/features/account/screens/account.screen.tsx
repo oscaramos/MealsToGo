@@ -3,18 +3,16 @@ import styled from "styled-components/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { View } from "react-native";
 import { AuthenticationStackParamList } from "../../../infrastructure/navigation/authentication.navigator";
-import { Button as RNButton } from "react-native-paper";
-import { AccountBackground } from "../components/account.styles";
+import { AccountBackground, AuthButton } from "../components/account.styles";
+import { Spacer } from "../../../components/Spacer";
 
 const Container = styled(View)`
   height: 100%;
 `;
 
-const Button = styled(RNButton)``;
-
 const Card = styled.View`
   background-color: rgba(255, 255, 255, 0.3);
-  padding: ${(props) => props.theme.sizes[1]};
+  padding: ${(props) => props.theme.sizes[2]};
 `;
 
 type ScreenNavigationProp = StackNavigationProp<
@@ -31,15 +29,19 @@ export function AccountScreen({ navigation }: Props) {
     <Container>
       <AccountBackground>
         <Card>
-          <Button mode="contained" onPress={() => navigation.navigate("login")}>
+          <AuthButton
+            mode="contained"
+            onPress={() => navigation.navigate("login")}
+          >
             Login
-          </Button>
-          <Button
+          </AuthButton>
+          <Spacer size="large" position="bottom" />
+          <AuthButton
             mode="contained"
             onPress={() => navigation.navigate("register")}
           >
             Create an account
-          </Button>
+          </AuthButton>
         </Card>
       </AccountBackground>
     </Container>

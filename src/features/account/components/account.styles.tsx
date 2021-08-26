@@ -1,14 +1,17 @@
 import React from "react";
+import { Button } from "react-native-paper";
 import styled from "styled-components/native";
 
-export const AccountCover = styled.View`
+import { colors } from "../../../infrastructure/theme/colors";
+
+const AccountCover = styled.View`
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
 `;
 
-export const AccountBackgroundImage = styled.ImageBackground.attrs({
+const AccountBackgroundImage = styled.ImageBackground.attrs({
   source: require("../../../../assets/home_bg.jpg"),
   resizeMode: "cover",
 })`
@@ -16,6 +19,12 @@ export const AccountBackgroundImage = styled.ImageBackground.attrs({
   flex: 1;
   justify-content: center;
   align-items: center;
+`;
+
+export const AuthButton = styled(Button).attrs({
+  color: colors.brand.primary,
+})`
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 type AccountBackgroundProps = {
