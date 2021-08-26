@@ -23,7 +23,7 @@ const Container = styled(View)`
 
 type ScreenNavigationProp = StackNavigationProp<
   AuthenticationStackParamList,
-  "account"
+  "login"
 >;
 
 type Props = {
