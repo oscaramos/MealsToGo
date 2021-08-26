@@ -2,7 +2,6 @@ import { View } from "react-native";
 import React, { useState } from "react";
 import styled from "styled-components/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Button as RNButton, TextInput } from "react-native-paper";
 
 import {
   AccountBackground,
@@ -13,6 +12,8 @@ import {
 import { Spacer } from "../../../components/Spacer";
 import { useAuthentication } from "../../../services/authentication/authentication.context";
 import { AuthenticationStackParamList } from "../../../infrastructure/navigation/authentication.navigator";
+
+import { Text } from "../../../components/typography/text.component";
 
 const Container = styled(View)`
   height: 100%;
@@ -28,7 +29,7 @@ type Props = {
 };
 
 export function LoginScreen({ navigation }: Props) {
-  const { login } = useAuthentication();
+  const { login, error } = useAuthentication();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,7 +38,7 @@ export function LoginScreen({ navigation }: Props) {
     // By now
     // email: "test@test.com"
     // password:"password123"
-    login(email, password).then(); // todo: catch when error and show its message
+    login(email, password).then();
   };
 
   return (
@@ -61,7 +62,9 @@ export function LoginScreen({ navigation }: Props) {
             autoCapitalize="none"
             onChangeText={(text) => setPassword(text)}
           />
-          <Spacer position="bottom" size="large" />
+          <Spacer position="bottom" size="large">
+            {error ? <Text variant="error">{error}</Text> : null}
+          </Spacer>
           <AuthButton mode="contained" onPress={handleLogin}>
             Login
           </AuthButton>

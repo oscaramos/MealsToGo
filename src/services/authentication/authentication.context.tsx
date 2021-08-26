@@ -1,14 +1,17 @@
 import firebase from "firebase";
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+
 import {
   authenticationRequest,
   unAuthenticationRequest,
 } from "./authentication.service";
+import { auth } from "../firebase";
 
 interface IAuthenticationReturn {
   user: firebase.User | null | undefined;
   loading: boolean;
+  error: string;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
 }
@@ -24,10 +27,15 @@ interface IAuthenticationProviderProps {
 export function AuthenticationProvider({
   children,
 }: IAuthenticationProviderProps) {
-  const [user, loading] = useAuthState(firebase.auth());
+  const [user, loading] = useAuthState(auth);
+  const [error, setError] = useState("");
 
   const login = async (email: string, password: string) => {
-    await authenticationRequest(email, password);
+    try {
+      await authenticationRequest(email, password);
+    } catch (e) {
+      setError(e.message);
+    }
   };
 
   const logout = async () => {
@@ -39,6 +47,7 @@ export function AuthenticationProvider({
       value={{
         user,
         loading,
+        error,
         login,
         logout,
       }}
