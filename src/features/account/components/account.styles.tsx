@@ -39,3 +39,8 @@ export function AccountBackground({ children }: AccountBackgroundProps) {
     </AccountBackgroundImage>
   );
 }
+
+export const AccountCard = styled.View`
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: ${(props) => props.theme.sizes[1]};
+`;

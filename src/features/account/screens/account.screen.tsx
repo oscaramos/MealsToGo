@@ -3,16 +3,15 @@ import styled from "styled-components/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { View } from "react-native";
 import { AuthenticationStackParamList } from "../../../infrastructure/navigation/authentication.navigator";
-import { AccountBackground, AuthButton } from "../components/account.styles";
+import {
+  AccountBackground,
+  AccountCard,
+  AuthButton,
+} from "../components/account.styles";
 import { Spacer } from "../../../components/Spacer";
 
 const Container = styled(View)`
   height: 100%;
-`;
-
-const Card = styled.View`
-  background-color: rgba(255, 255, 255, 0.3);
-  padding: ${(props) => props.theme.sizes[2]};
 `;
 
 type ScreenNavigationProp = StackNavigationProp<
@@ -28,7 +27,7 @@ export function AccountScreen({ navigation }: Props) {
   return (
     <Container>
       <AccountBackground>
-        <Card>
+        <AccountCard>
           <AuthButton
             mode="contained"
             icon="lock-open-outline"
@@ -44,7 +43,7 @@ export function AccountScreen({ navigation }: Props) {
           >
             Register
           </AuthButton>
-        </Card>
+        </AccountCard>
       </AccountBackground>
     </Container>
   );
