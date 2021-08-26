@@ -5,6 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/.expo" />
+      <excludeFolder url="file://$MODULE_DIR$/.expo-shared" />
       <excludePattern pattern="yarn.lock" />
     </content>
     <orderEntry type="inheritedJdk" />
