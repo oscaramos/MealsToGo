@@ -8,7 +8,7 @@ import {
 } from "./authentication.service";
 
 interface IAuthenticationReturn {
-  user: firebase.auth.UserCredential | undefined;
+  user: firebase.User | null;
   loading: boolean;
   error: string;
   login: (email: string, password: string) => Promise<void>;
@@ -27,14 +27,23 @@ interface IAuthenticationProviderProps {
 export function AuthenticationProvider({
   children,
 }: IAuthenticationProviderProps) {
-  const [user, setUser] = useState<IAuthenticationReturn["user"]>(undefined);
+  const [user, setUser] = useState<IAuthenticationReturn["user"]>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  firebase.auth().onAuthStateChanged((storedUser) => {
+    if (storedUser) {
+      setUser(storedUser);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  });
 
   const login = async (email: string, password: string) => {
     setLoading(true);
     try {
-      setUser(await authenticationRequest(email, password));
+      setUser((await authenticationRequest(email, password)).user);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -44,7 +53,7 @@ export function AuthenticationProvider({
   const register = async (email: string, password: string) => {
     setLoading(true);
     try {
-      setUser(await registerRequest(email, password));
+      setUser((await registerRequest(email, password)).user);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -54,6 +63,8 @@ export function AuthenticationProvider({
 
   const logout = async () => {
     await unAuthenticationRequest();
+    setUser(null);
+    setError("");
   };
 
   return (
