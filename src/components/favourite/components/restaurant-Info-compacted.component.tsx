@@ -16,7 +16,7 @@ const Photo = styled.Image`
   border-radius: 20px;
 `;
 
-const Title = styled(Text)`
+const Title = styled(Text as any)`
   text-align: center;
 `;
 
