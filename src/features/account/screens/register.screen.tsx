@@ -14,11 +14,11 @@ import {
   Title,
 } from "../components/account.styles";
 
-import { Spacer } from "../../../components/Spacer";
-import { Text } from "../../../components/typography/text.component";
+import { Spacer } from "@components/Spacer";
+import { Text } from "@components/typography/text.component";
 
-import { useAuthentication } from "../../../services/authentication/authentication.context";
-import { AuthenticationStackParamList } from "../../../infrastructure/navigation/authentication.navigator";
+import { useAuthentication } from "@services/authentication/authentication.context";
+import { AuthenticationStackParamList } from "@infrastructure/navigation/authentication.navigator";
 
 const Container = styled(View)`
   height: 100%;

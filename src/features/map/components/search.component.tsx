@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
-import { useLocation } from "../../../services/location/location.context";
+import { useLocation } from "@services/location/location.context";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const SearchContainer = styled(SafeAreaView)`

@@ -9,9 +9,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
-import { IRestaurantTransformed } from "../../../services/restaurants/restaurants";
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
-import { RestaurantsStackParamList } from "../../../infrastructure/navigation/restaurants.navigator";
+import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
 
 const Container = styled(SafeAreaView)`
   flex: 1;

@@ -3,11 +3,11 @@ import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-import { RestaurantsScreen } from "../../features/restaurant/screens/restaurants.screen";
+import { RestaurantsScreen } from "@features/restaurant/screens/restaurants.screen";
 import {
   IRestaurantDetailsScreenProps,
   RestaurantDetailsScreen,
-} from "../../features/restaurant/screens/restaurant-details.screen";
+} from "@features/restaurant/screens/restaurant-details.screen";
 
 export type RestaurantsStackParamList = {
   restaurants: undefined;

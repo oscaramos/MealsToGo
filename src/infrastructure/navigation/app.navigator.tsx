@@ -5,8 +5,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
 
-import { MapScreen } from "../../features/map/screens/map.screen";
-import { SettingsScreen } from "../../features/settings/screens/settings.screen";
+import { MapScreen } from "@features/map/screens/map.screen";
+import { SettingsScreen } from "@features/settings/screens/settings.screen";
 
 const Tab = createBottomTabNavigator();
 

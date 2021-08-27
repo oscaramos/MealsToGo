@@ -3,8 +3,8 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { FavouriteContainer } from "./favourite.styles";
 
-import { useFavourites } from "../../services/favourites/favourites.context";
-import { IRestaurantTransformed } from "../../services/restaurants/restaurants";
+import { useFavourites } from "@services/favourites/favourites.context";
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
 type Props = {
   restaurant: IRestaurantTransformed;

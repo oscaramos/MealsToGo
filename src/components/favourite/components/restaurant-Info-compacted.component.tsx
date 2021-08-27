@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 import { Text } from "../../typography/text.component";
 
-import { IRestaurantTransformed } from "../../../services/restaurants/restaurants";
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
 const Container = styled.View`
   width: 120px;

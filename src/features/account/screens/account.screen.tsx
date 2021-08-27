@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { View } from "react-native";
-import { AuthenticationStackParamList } from "../../../infrastructure/navigation/authentication.navigator";
+import { AuthenticationStackParamList } from "@infrastructure/navigation/authentication.navigator";
 import {
   AccountBackground,
   AccountCard,
   AuthButton,
   Title,
 } from "../components/account.styles";
-import { Spacer } from "../../../components/Spacer";
+import { Spacer } from "@components/Spacer";
 
 const Container = styled(View)`
   height: 100%;

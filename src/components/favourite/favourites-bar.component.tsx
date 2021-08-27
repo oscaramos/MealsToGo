@@ -6,8 +6,8 @@ import { Spacer } from "../Spacer";
 
 import { Text } from "../typography/text.component";
 
-import { useFavourites } from "../../services/favourites/favourites.context";
-import { IRestaurantTransformed } from "../../services/restaurants/restaurants";
+import { useFavourites } from "@services/favourites/favourites.context";
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
 import { RestaurantInfoCompacted } from "./components/restaurant-Info-compacted.component";
 

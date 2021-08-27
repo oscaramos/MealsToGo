@@ -6,10 +6,10 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { Search } from "../components/search.component";
 import { CalloutMap } from "../components/callout-map.component";
 
-import { useLocation } from "../../../services/location/location.context";
-import { useRestaurants } from "../../../services/restaurants/restaurants.context";
+import { useLocation } from "@services/location/location.context";
+import { useRestaurants } from "@services/restaurants/restaurants.context";
 
-import { RestaurantsStackParamList } from "../../../infrastructure/navigation/restaurants.navigator";
+import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
 
 const Map = styled(MapView)`
   height: 100%;

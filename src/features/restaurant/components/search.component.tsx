@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
 
-import { useLocation } from "../../../services/location/location.context";
+import { useLocation } from "@services/location/location.context";
 
 const SearchContainer = styled.View`
   flex-grow: 0;

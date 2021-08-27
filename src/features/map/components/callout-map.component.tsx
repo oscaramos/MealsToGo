@@ -3,9 +3,9 @@ import styled from "styled-components/native";
 import { WebView } from "react-native-webview";
 import { Image as RNImage, Platform } from "react-native";
 
-import { IRestaurantTransformed } from "../../../services/restaurants/restaurants";
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
-import { Text } from "../../../components/typography/text.component";
+import { Text } from "@components/typography/text.component";
 
 type Props = {
   restaurant: IRestaurantTransformed;

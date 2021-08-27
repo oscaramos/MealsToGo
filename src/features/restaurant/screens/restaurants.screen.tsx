@@ -6,11 +6,11 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { FavouritesBar } from "../../../components/favourite/favourites-bar.component";
+import { FavouritesBar } from "@components/favourite/favourites-bar.component";
 
-import { RestaurantsStackParamList } from "../../../infrastructure/navigation/restaurants.navigator";
+import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
 
-import { useRestaurants } from "../../../services/restaurants/restaurants.context";
+import { useRestaurants } from "@services/restaurants/restaurants.context";
 import {
   ActivityContainer,
   Container,
