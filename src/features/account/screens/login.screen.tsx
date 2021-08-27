@@ -1,6 +1,8 @@
 import { View } from "react-native";
 import React, { useState } from "react";
 import styled from "styled-components/native";
+import { ActivityIndicator } from "react-native-paper";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import {
@@ -12,10 +14,10 @@ import {
   Title,
 } from "../components/account.styles";
 import { Spacer } from "../../../components/Spacer";
+import { Text } from "../../../components/typography/text.component";
+
 import { useAuthentication } from "../../../services/authentication/authentication.context";
 import { AuthenticationStackParamList } from "../../../infrastructure/navigation/authentication.navigator";
-
-import { Text } from "../../../components/typography/text.component";
 
 const Container = styled(View)`
   height: 100%;
@@ -31,7 +33,7 @@ type Props = {
 };
 
 export function LoginScreen({ navigation }: Props) {
-  const { login, error } = useAuthentication();
+  const { login, loading, error } = useAuthentication();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -68,13 +70,17 @@ export function LoginScreen({ navigation }: Props) {
           <ErrorContainer>
             {error ? <Text variant="error">{error}</Text> : null}
           </ErrorContainer>
-          <AuthButton
-            mode="contained"
-            icon="lock-open-outline"
-            onPress={handleLogin}
-          >
-            Login
-          </AuthButton>
+          {!loading ? (
+            <AuthButton
+              mode="contained"
+              icon="lock-open-outline"
+              onPress={handleLogin}
+            >
+              Login
+            </AuthButton>
+          ) : (
+            <ActivityIndicator animating={true} color={Colors.blue300} />
+          )}
         </AccountCard>
         <Spacer position="top" size="large">
           <AuthButton mode="contained" onPress={() => navigation.goBack()}>

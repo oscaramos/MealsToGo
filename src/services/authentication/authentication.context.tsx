@@ -1,16 +1,14 @@
 import firebase from "firebase";
 import React, { createContext, useContext, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 import {
   authenticationRequest,
   registerRequest,
   unAuthenticationRequest,
 } from "./authentication.service";
-import { auth } from "../firebase";
 
 interface IAuthenticationReturn {
-  user: firebase.User | null | undefined;
+  user: firebase.auth.UserCredential | undefined;
   loading: boolean;
   error: string;
   login: (email: string, password: string) => Promise<void>;
@@ -29,22 +27,28 @@ interface IAuthenticationProviderProps {
 export function AuthenticationProvider({
   children,
 }: IAuthenticationProviderProps) {
-  const [user, loading] = useAuthState(auth);
+  const [user, setUser] = useState<IAuthenticationReturn["user"]>(undefined);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const login = async (email: string, password: string) => {
+    setLoading(true);
     try {
-      await authenticationRequest(email, password);
+      setUser(await authenticationRequest(email, password));
     } catch (e) {
       setError(e.message);
+    } finally {
+      setLoading(false);
     }
   };
-
   const register = async (email: string, password: string) => {
+    setLoading(true);
     try {
-      await registerRequest(email, password);
+      setUser(await registerRequest(email, password));
     } catch (e) {
       setError(e.message);
+    } finally {
+      setLoading(false);
     }
   };
 
