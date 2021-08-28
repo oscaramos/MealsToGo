@@ -1,15 +1,29 @@
 import React from "react";
-import { View } from "react-native";
-import { List } from "react-native-paper";
+import { Avatar, List } from "react-native-paper";
 import styled from "styled-components/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+
+import { Text } from "@components/typography/text.component";
+import { Spacer } from "@components/Spacer";
 
 import { useAuthentication } from "@services/authentication/authentication.context";
 
 import { SettingsStackParamList } from "@infrastructure/navigation/settings.navigator";
 
+const Container = styled.View`
+  padding: ${(props) => props.theme.space[4]};
+`;
+
 const SettingsListItem = styled(List.Item)`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
+`;
+
+const AvatarContainer = styled.View`
+  align-items: center;
+`;
+
+const AvatarIcon = styled(Avatar.Icon)`
+  background-color: #2182bd;
 `;
 
 type ScreenNavigationProp = StackNavigationProp<
@@ -22,10 +36,17 @@ type Props = {
 };
 
 export function SettingsScreen({ navigation }: Props) {
-  const { logout } = useAuthentication();
+  const { logout, user } = useAuthentication();
 
   return (
-    <View>
+    <Container>
+      <AvatarContainer>
+        <AvatarIcon size={180} icon="human" />
+        <Spacer position="top" size="large">
+          <Text variant="label">{user?.email}</Text>
+        </Spacer>
+      </AvatarContainer>
+
       <List.Section>
         <SettingsListItem
           title="Favourites"
@@ -39,6 +60,6 @@ export function SettingsScreen({ navigation }: Props) {
           onPress={() => logout()}
         />
       </List.Section>
-    </View>
+    </Container>
   );
 }
