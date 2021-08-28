@@ -28,7 +28,7 @@ export function AuthenticationProvider({
   children,
 }: IAuthenticationProviderProps) {
   const [user, setUser] = useState<IAuthenticationReturn["user"]>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   firebase.auth().onAuthStateChanged((storedUser) => {
