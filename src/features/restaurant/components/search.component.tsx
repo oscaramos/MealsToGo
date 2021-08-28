@@ -9,12 +9,13 @@ const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-type Props = {
+export function Search({
+  open,
+  setOpen,
+}: {
   open: boolean;
   setOpen: (newOpen: boolean) => void;
-};
-
-export function Search({ open, setOpen }: Props) {
+}) {
   const { search } = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
 

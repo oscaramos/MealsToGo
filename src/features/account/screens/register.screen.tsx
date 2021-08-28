@@ -25,16 +25,11 @@ const Container = styled(View)`
   height: 100%;
 `;
 
-type ScreenNavigationProp = StackNavigationProp<
-  AuthenticationStackParamList,
-  "register"
->;
-
-type Props = {
-  navigation: ScreenNavigationProp;
-};
-
-export function RegisterScreen({ navigation }: Props) {
+export function RegisterScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<AuthenticationStackParamList, "register">;
+}) {
   const { register, loading, error: authError } = useAuthentication();
 
   const [email, setEmail] = useState("");

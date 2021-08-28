@@ -43,11 +43,9 @@ const variants = {
 
 type typeVariants = keyof typeof variants;
 
-interface ITextProps {
+export const Text = styled.Text<{
   variant?: typeVariants;
-}
-
-export const Text = styled.Text<ITextProps>`
+}>`
   ${({ theme }) => defaultTextStyles(theme)}
   ${({ variant = "body", theme }) => variants[variant](theme)}
 `;

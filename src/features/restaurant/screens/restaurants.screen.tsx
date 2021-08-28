@@ -19,16 +19,11 @@ import {
   RestaurantListContainer,
 } from "./restaurants.styles";
 
-type ScreenNavigationProp = StackNavigationProp<
-  RestaurantsStackParamList,
-  "restaurants"
->;
-
-type Props = {
-  navigation: ScreenNavigationProp;
-};
-
-export function RestaurantsScreen({ navigation }: Props) {
+export function RestaurantsScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<RestaurantsStackParamList, "restaurants">;
+}) {
   const theme = useTheme();
 
   const { restaurants, loading } = useRestaurants();

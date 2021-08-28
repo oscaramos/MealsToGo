@@ -26,16 +26,11 @@ const AvatarIcon = styled(Avatar.Icon)`
   background-color: #2182bd;
 `;
 
-type ScreenNavigationProp = StackNavigationProp<
-  SettingsStackParamList,
-  "settings"
->;
-
-type Props = {
-  navigation: ScreenNavigationProp;
-};
-
-export function SettingsScreen({ navigation }: Props) {
+export function SettingsScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<SettingsStackParamList, "settings">;
+}) {
   const { logout, user } = useAuthentication();
 
   return (

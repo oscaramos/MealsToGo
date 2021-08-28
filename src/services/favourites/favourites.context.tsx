@@ -4,20 +4,23 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useAuthentication } from "../authentication/authentication.context";
 import { IRestaurantTransformed } from "../restaurants/restaurants";
 
-type Return = {
-  favourites: IRestaurantTransformed[];
-  addToFavourites: (newRestaurant: IRestaurantTransformed) => void;
-  removeFromFavourites: (restaurantToRemove: IRestaurantTransformed) => void;
-  isFavourite: (restaurant: IRestaurantTransformed) => boolean;
-};
+const FavouritesContext = createContext<
+  | {
+      favourites: IRestaurantTransformed[];
+      addToFavourites: (newRestaurant: IRestaurantTransformed) => void;
+      removeFromFavourites: (
+        restaurantToRemove: IRestaurantTransformed
+      ) => void;
+      isFavourite: (restaurant: IRestaurantTransformed) => boolean;
+    }
+  | undefined
+>(undefined);
 
-const FavouritesContext = createContext<Return | undefined>(undefined);
-
-type Props = {
+export function FavouritesProvider({
+  children,
+}: {
   children: React.ReactNode;
-};
-
-export function FavouritesProvider({ children }: Props) {
+}) {
   const { user } = useAuthentication();
   const [favourites, setFavourites] = useState<IRestaurantTransformed[]>([]);
 

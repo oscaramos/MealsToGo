@@ -13,11 +13,11 @@ const Container = styled.View`
   padding: ${(props) => props.theme.sizes[1]};
 `;
 
-type Props = {
+export function FavouritesBar({
+  onDetail,
+}: {
   onDetail: (restaurant: IRestaurantTransformed) => void;
-};
-
-export function FavouritesBar({ onDetail }: Props) {
+}) {
   const { favourites } = useFavourites();
 
   if (favourites.length === 0) {

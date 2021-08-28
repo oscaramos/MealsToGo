@@ -4,15 +4,16 @@ import {
 } from "@react-navigation/stack";
 import React from "react";
 
-import {
-  IRestaurantDetailsScreenProps,
-  RestaurantDetailsScreen,
-} from "@features/restaurant/screens/restaurant-details.screen";
+import { RestaurantDetailsScreen } from "@features/restaurant/screens/restaurant-details.screen";
 import { RestaurantsScreen } from "@features/restaurant/screens/restaurants.screen";
+
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
 export type RestaurantsStackParamList = {
   restaurants: undefined;
-  "restaurant-details": IRestaurantDetailsScreenProps;
+  "restaurant-details": {
+    item: IRestaurantTransformed;
+  };
 };
 
 const Tab = createStackNavigator<RestaurantsStackParamList>();

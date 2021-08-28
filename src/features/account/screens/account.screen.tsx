@@ -20,16 +20,11 @@ const Container = styled(View)`
   height: 100%;
 `;
 
-type ScreenNavigationProp = StackNavigationProp<
-  AuthenticationStackParamList,
-  "account"
->;
-
-type Props = {
-  navigation: ScreenNavigationProp;
-};
-
-export function AccountScreen({ navigation }: Props) {
+export function AccountScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<AuthenticationStackParamList, "account">;
+}) {
   return (
     <Container>
       <AccountBackground>

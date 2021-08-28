@@ -4,12 +4,6 @@ import styled, { useTheme } from "styled-components/native";
 type sizeVariantTypes = "small" | "medium" | "large";
 type positionVariantTypes = "top" | "left" | "bottom" | "right";
 
-type Props = {
-  position: positionVariantTypes;
-  size: sizeVariantTypes;
-  children?: React.ReactNode;
-};
-
 const sizeVariant: Record<sizeVariantTypes, number> = {
   small: 1,
   medium: 2,
@@ -23,15 +17,21 @@ const marginVariant: Record<positionVariantTypes, string> = {
   right: "margin-right",
 };
 
-interface ISpacerVariantProps {
+const SpacerVariant = styled.View<{
   variant: string;
-}
-
-const SpacerVariant = styled.View<ISpacerVariantProps>`
+}>`
   ${(props) => props.variant}
 `;
 
-export function Spacer({ position, size, children }: Props) {
+export function Spacer({
+  position,
+  size,
+  children,
+}: {
+  position: positionVariantTypes;
+  size: sizeVariantTypes;
+  children?: React.ReactNode;
+}) {
   const theme = useTheme();
   const variant = `${marginVariant[position]}: ${
     theme.space[sizeVariant[size]]

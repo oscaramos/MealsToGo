@@ -22,11 +22,7 @@ import {
   Stars,
 } from "./restaurant-info-card.styles";
 
-interface IRestaurantInfoCardProps {
-  item: IRestaurantTransformed;
-}
-
-export function RestaurantInfoCard({ item }: IRestaurantInfoCardProps) {
+export function RestaurantInfoCard({ item }: { item: IRestaurantTransformed }) {
   const {
     name: title,
     vicinity: address,

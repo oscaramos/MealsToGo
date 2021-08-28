@@ -6,11 +6,11 @@ import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
 import { FavouriteContainer } from "./favourite.styles";
 
-type Props = {
+export function Favourite({
+  restaurant,
+}: {
   restaurant: IRestaurantTransformed;
-};
-
-export function Favourite({ restaurant }: Props) {
+}) {
   const {
     isFavourite,
     addToFavourites,

@@ -20,11 +20,11 @@ const Title = styled(Text as any)`
   text-align: center;
 `;
 
-type Props = {
+export function RestaurantInfoCompacted({
+  restaurant,
+}: {
   restaurant: IRestaurantTransformed;
-};
-
-export function RestaurantInfoCompacted({ restaurant }: Props) {
+}) {
   return (
     <Container>
       <Photo source={{ uri: restaurant.photo }} />

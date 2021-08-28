@@ -8,8 +8,6 @@ import styled from "styled-components/native";
 
 import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
 
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
-
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 const Container = styled(SafeAreaView)`
@@ -17,26 +15,15 @@ const Container = styled(SafeAreaView)`
   flex-direction: column;
 `;
 
-export interface IRestaurantDetailsScreenProps {
-  item: IRestaurantTransformed;
-}
-
-type ScreenNavigationProp = StackNavigationProp<
-  RestaurantsStackParamList,
-  "restaurant-details"
->;
-
-type ScreenRouteProp = RouteProp<
-  RestaurantsStackParamList,
-  "restaurant-details"
->;
-
-type Props = {
-  navigation: ScreenNavigationProp;
-  route: ScreenRouteProp;
-};
-
-export function RestaurantDetailsScreen({ route }: Props) {
+export function RestaurantDetailsScreen({
+  route,
+}: {
+  navigation: StackNavigationProp<
+    RestaurantsStackParamList,
+    "restaurant-details"
+  >;
+  route: RouteProp<RestaurantsStackParamList, "restaurant-details">;
+}) {
   const { item } = route.params;
 
   const [breakfastExpanded, setBreakfastExpanded] = useState(false);

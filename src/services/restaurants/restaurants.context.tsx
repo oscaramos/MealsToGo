@@ -8,21 +8,20 @@ import {
   restaurantsTransform,
 } from "./restaurants.service";
 
-interface IRestaurantReturn {
-  restaurants?: IRestaurantTransformed[];
-  loading: boolean;
-  error?: string;
-}
+const RestaurantsContext = createContext<
+  | {
+      restaurants?: IRestaurantTransformed[];
+      loading: boolean;
+      error?: string;
+    }
+  | undefined
+>(undefined);
 
-const RestaurantsContext = createContext<IRestaurantReturn | undefined>(
-  undefined
-);
-
-interface IRestaurantProviderProps {
+export function RestaurantsProvider({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-export function RestaurantsProvider({ children }: IRestaurantProviderProps) {
+}) {
   const { location } = useLocation();
 
   const { value: restaurants, loading, error } = useAsync(async () => {

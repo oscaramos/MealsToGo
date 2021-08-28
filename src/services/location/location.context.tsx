@@ -4,23 +4,18 @@ import useAsync from "react-use/lib/useAsync";
 import { Coords, ViewPort } from "../services";
 import { locationRequest, locationTransform } from "./location.service";
 
-interface LocationProviderReturn {
-  location?: Coords & { viewport: ViewPort };
-  loading: boolean;
-  error?: string;
-  searchTerm: string;
-  search: (newSearchTerm: string) => void;
-}
+const LocationContext = createContext<
+  | {
+      location?: Coords & { viewport: ViewPort };
+      loading: boolean;
+      error?: string;
+      searchTerm: string;
+      search: (newSearchTerm: string) => void;
+    }
+  | undefined
+>(undefined);
 
-const LocationContext = createContext<LocationProviderReturn | undefined>(
-  undefined
-);
-
-interface ILocationProviderProps {
-  children: React.ReactNode;
-}
-
-export function LocationProvider({ children }: ILocationProviderProps) {
+export function LocationProvider({ children }: { children: React.ReactNode }) {
   const [searchTerm, setSearchTerm] = useState("antwerp");
 
   const { value: location, loading, error } = useAsync(async () => {

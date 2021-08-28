@@ -15,16 +15,14 @@ const Map = styled(MapView)`
   height: 100%;
 `;
 
-type ScreenNavigationProp = StackNavigationProp<
-  RestaurantsStackParamList,
-  "restaurant-details"
->;
-
-type Props = {
-  navigation: ScreenNavigationProp;
-};
-
-export function MapScreen({ navigation }: Props) {
+export function MapScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<
+    RestaurantsStackParamList,
+    "restaurant-details"
+  >;
+}) {
   const [latDelta, setLatDelta] = useState(0);
 
   const { location } = useLocation();

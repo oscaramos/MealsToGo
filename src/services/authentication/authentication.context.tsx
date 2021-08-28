@@ -7,27 +7,33 @@ import {
   unAuthenticationRequest,
 } from "./authentication.service";
 
-interface IAuthenticationReturn {
-  user: firebase.User | null;
-  loading: boolean;
-  error: string;
-  login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-}
-
-const AuthenticationContext = createContext<IAuthenticationReturn | undefined>(
-  undefined
-);
-
-interface IAuthenticationProviderProps {
-  children: React.ReactNode;
-}
+const AuthenticationContext = createContext<
+  | {
+      user: firebase.User | null;
+      loading: boolean;
+      error: string;
+      login: (email: string, password: string) => Promise<void>;
+      register: (email: string, password: string) => Promise<void>;
+      logout: () => void;
+    }
+  | undefined
+>(undefined);
 
 export function AuthenticationProvider({
   children,
-}: IAuthenticationProviderProps) {
-  const [user, setUser] = useState<IAuthenticationReturn["user"]>(null);
+}: {
+  children: React.ReactNode;
+}) {
+  const [user, setUser] = useState<
+    {
+      user: firebase.User | null;
+      loading: boolean;
+      error: string;
+      login: (email: string, password: string) => Promise<void>;
+      register: (email: string, password: string) => Promise<void>;
+      logout: () => void;
+    }["user"]
+  >(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

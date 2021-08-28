@@ -29,11 +29,7 @@ export const AuthButton = styled(Button).attrs({
   padding: ${(props) => props.theme.space[2]};
 `;
 
-type AccountBackgroundProps = {
-  children: React.ReactNode;
-};
-
-export function AccountBackground({ children }: AccountBackgroundProps) {
+export function AccountBackground({ children }: { children: React.ReactNode }) {
   return (
     <AccountBackgroundImage>
       <AccountCover />
