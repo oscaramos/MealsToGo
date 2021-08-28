@@ -29,7 +29,9 @@ export function RestaurantsProvider({
       return [];
     }
     const response = await restaurantsRequest(
-      `${location.lat},${location.lng}`
+      `${location.lat},${location.lng}` as Parameters<
+        typeof restaurantsRequest
+      >[0]
     );
     return restaurantsTransform(response);
   }, [location]);
