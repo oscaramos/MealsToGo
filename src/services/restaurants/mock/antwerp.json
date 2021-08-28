@@ -111,9 +111,7 @@
       "photos": [
         {
           "height": 2000,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 3000
         }
@@ -388,9 +386,7 @@
       "photos": [
         {
           "height": 1536,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2048
         }
@@ -404,12 +400,7 @@
       "rating": 4.7,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 152,
       "vicinity": "Reyndersstraat 24, Antwerpen"
     },
@@ -439,9 +430,7 @@
       "photos": [
         {
           "height": 3139,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 6153
         }
@@ -491,9 +480,7 @@
       "photos": [
         {
           "height": 4032,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 3024
         }
@@ -543,9 +530,7 @@
       "photos": [
         {
           "height": 639,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1136
         }
@@ -559,12 +544,7 @@
       "rating": 4.5,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 316,
       "vicinity": "Oudeleeuwenrui 12, Antwerpen"
     },
@@ -594,9 +574,7 @@
       "photos": [
         {
           "height": 3376,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 6000
         }
@@ -610,12 +588,7 @@
       "rating": 4.1,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 1274,
       "vicinity": "Hopland 2, Antwerpen"
     },
@@ -645,9 +618,7 @@
       "photos": [
         {
           "height": 720,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 480
         }
@@ -661,12 +632,7 @@
       "rating": 4.4,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 311,
       "vicinity": "Oude Koornmarkt 16, Antwerpen"
     },
@@ -696,9 +662,7 @@
       "photos": [
         {
           "height": 683,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1024
         }
@@ -749,9 +713,7 @@
       "photos": [
         {
           "height": 1242,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2038
         }
@@ -801,9 +763,7 @@
       "photos": [
         {
           "height": 427,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 640
         }
@@ -817,12 +777,7 @@
       "rating": 4.7,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 362,
       "vicinity": "Leopoldstraat 24, Antwerpen"
     },
@@ -852,9 +807,7 @@
       "photos": [
         {
           "height": 1772,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2658
         }
@@ -868,12 +821,7 @@
       "rating": 3.9,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 4311,
       "vicinity": "Jan Blomstraat 8, Antwerpen"
     },
@@ -903,9 +851,7 @@
       "photos": [
         {
           "height": 478,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 851
         }
@@ -919,12 +865,7 @@
       "rating": 4.6,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 151,
       "vicinity": "Reyndersstraat 17, Antwerpen"
     }

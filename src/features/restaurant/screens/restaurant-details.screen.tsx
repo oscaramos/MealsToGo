@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import { List } from "react-native-paper";
-import { ScrollView } from "react-native";
-import styled from "styled-components/native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import React, { useState } from "react";
+import { ScrollView } from "react-native";
+import { List } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
+import styled from "styled-components/native";
 
-import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
 
 import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
-import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
+import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 const Container = styled(SafeAreaView)`
   flex: 1;

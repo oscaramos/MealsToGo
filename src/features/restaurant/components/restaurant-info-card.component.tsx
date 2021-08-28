@@ -1,16 +1,15 @@
-import React from "react";
 import { range } from "lodash";
+import React from "react";
 import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "@components/Spacer";
-import { Text } from "@components/typography/text.component";
 import { Favourite } from "@components/favourite/favourite.component";
+import { Text } from "@components/typography/text.component";
 
 import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
-import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-
+import star from "../../../../assets/star";
 import {
   Address,
   Icon,

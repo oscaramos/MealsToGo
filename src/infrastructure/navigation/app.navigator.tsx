@@ -1,12 +1,13 @@
-import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-import { RestaurantsNavigator } from "./restaurants.navigator";
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
 
 import { MapScreen } from "@features/map/screens/map.screen";
+
 import { SettingsNavigator } from "@infrastructure/navigation/settings.navigator";
+
+import { RestaurantsNavigator } from "./restaurants.navigator";
 
 const Tab = createBottomTabNavigator();
 

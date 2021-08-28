@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import { Text } from "../../typography/text.component";
-
 import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+
+import { Text } from "../../typography/text.component";
 
 const Container = styled.View`
   width: 120px;

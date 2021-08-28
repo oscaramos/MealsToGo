@@ -1,14 +1,14 @@
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Avatar, List } from "react-native-paper";
 import styled from "styled-components/native";
-import { StackNavigationProp } from "@react-navigation/stack";
 
-import { Text } from "@components/typography/text.component";
 import { Spacer } from "@components/Spacer";
-
-import { useAuthentication } from "@services/authentication/authentication.context";
+import { Text } from "@components/typography/text.component";
 
 import { SettingsStackParamList } from "@infrastructure/navigation/settings.navigator";
+
+import { useAuthentication } from "@services/authentication/authentication.context";
 
 const Container = styled.View`
   padding: ${(props) => props.theme.space[4]};

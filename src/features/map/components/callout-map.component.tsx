@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "styled-components/native";
-import { WebView } from "react-native-webview";
 import { Image as RNImage, Platform } from "react-native";
-
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { WebView } from "react-native-webview";
+import styled from "styled-components/native";
 
 import { Text } from "@components/typography/text.component";
+
+import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
 type Props = {
   restaurant: IRestaurantTransformed;

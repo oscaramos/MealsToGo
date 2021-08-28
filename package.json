@@ -47,6 +47,7 @@
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
     "@types/lodash": "4.14.168",
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",

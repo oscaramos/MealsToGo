@@ -1,15 +1,15 @@
-import styled from "styled-components/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useEffect, useState } from "react";
 import MapView, { Callout, Marker } from "react-native-maps";
-import { StackNavigationProp } from "@react-navigation/stack";
+import styled from "styled-components/native";
 
-import { Search } from "../components/search.component";
-import { CalloutMap } from "../components/callout-map.component";
+import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
 
 import { useLocation } from "@services/location/location.context";
 import { useRestaurants } from "@services/restaurants/restaurants.context";
 
-import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
+import { CalloutMap } from "../components/callout-map.component";
+import { Search } from "../components/search.component";
 
 const Map = styled(MapView)`
   height: 100%;

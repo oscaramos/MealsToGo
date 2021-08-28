@@ -2,8 +2,9 @@ import React from "react";
 import { Button, TextInput } from "react-native-paper";
 import styled from "styled-components/native";
 
-import { colors } from "@infrastructure/theme/colors";
 import { Text } from "@components/typography/text.component";
+
+import { colors } from "@infrastructure/theme/colors";
 
 const AccountCover = styled.View`
   position: absolute;

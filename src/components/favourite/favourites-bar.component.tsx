@@ -1,14 +1,12 @@
 import React from "react";
-import styled from "styled-components/native";
 import { FlatList, TouchableOpacity } from "react-native";
-
-import { Spacer } from "../Spacer";
-
-import { Text } from "../typography/text.component";
+import styled from "styled-components/native";
 
 import { useFavourites } from "@services/favourites/favourites.context";
 import { IRestaurantTransformed } from "@services/restaurants/restaurants";
 
+import { Spacer } from "../Spacer";
+import { Text } from "../typography/text.component";
 import { RestaurantInfoCompacted } from "./components/restaurant-Info-compacted.component";
 
 const Container = styled.View`

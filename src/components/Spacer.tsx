@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components/native";
-import { useTheme } from "styled-components/native";
+import styled, { useTheme } from "styled-components/native";
 
 type sizeVariantTypes = "small" | "medium" | "large";
 type positionVariantTypes = "top" | "left" | "bottom" | "right";

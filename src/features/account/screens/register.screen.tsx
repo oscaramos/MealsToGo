@@ -1,9 +1,16 @@
-import { View } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useState } from "react";
-import styled from "styled-components/native";
+import { View } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import { StackNavigationProp } from "@react-navigation/stack";
+import styled from "styled-components/native";
+
+import { Spacer } from "@components/Spacer";
+import { Text } from "@components/typography/text.component";
+
+import { AuthenticationStackParamList } from "@infrastructure/navigation/authentication.navigator";
+
+import { useAuthentication } from "@services/authentication/authentication.context";
 
 import {
   AccountBackground,
@@ -13,12 +20,6 @@ import {
   ErrorContainer,
   Title,
 } from "../components/account.styles";
-
-import { Spacer } from "@components/Spacer";
-import { Text } from "@components/typography/text.component";
-
-import { useAuthentication } from "@services/authentication/authentication.context";
-import { AuthenticationStackParamList } from "@infrastructure/navigation/authentication.navigator";
 
 const Container = styled(View)`
   height: 100%;

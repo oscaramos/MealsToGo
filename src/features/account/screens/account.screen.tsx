@@ -1,18 +1,20 @@
+import { StackNavigationProp } from "@react-navigation/stack";
+import LottieView from "lottie-react-native";
 import React from "react";
 import { View } from "react-native";
-import LottieView from "lottie-react-native";
 import styled from "styled-components/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+
+import { Spacer } from "@components/Spacer";
 
 import { AuthenticationStackParamList } from "@infrastructure/navigation/authentication.navigator";
+
 import {
   AccountBackground,
-  AnimationWrapper,
   AccountCard,
+  AnimationWrapper,
   AuthButton,
   Title,
 } from "../components/account.styles";
-import { Spacer } from "@components/Spacer";
 
 const Container = styled(View)`
   height: 100%;

@@ -28,9 +28,7 @@
       "photos": [
         {
           "height": 1194,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1800
         }
@@ -80,9 +78,7 @@
       "photos": [
         {
           "height": 2000,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 3000
         }
@@ -134,9 +130,7 @@
       "photos": [
         {
           "height": 3024,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 4032
         }
@@ -185,9 +179,7 @@
       "photos": [
         {
           "height": 2640,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 3960
         }
@@ -238,9 +230,7 @@
       "photos": [
         {
           "height": 812,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1220
         }
@@ -290,9 +280,7 @@
       "photos": [
         {
           "height": 1000,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1500
         }
@@ -342,9 +330,7 @@
       "photos": [
         {
           "height": 750,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1000
         }
@@ -394,9 +380,7 @@
       "photos": [
         {
           "height": 1367,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2048
         }
@@ -446,9 +430,7 @@
       "photos": [
         {
           "height": 2268,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 4032
         }
@@ -497,9 +479,7 @@
       "photos": [
         {
           "height": 1333,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2000
         }
@@ -512,12 +492,7 @@
       "rating": 4,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 113,
       "vicinity": "THOMPSON CENTER, 100 West Randolph Street, Chicago"
     },
@@ -547,9 +522,7 @@
       "photos": [
         {
           "height": 3024,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 4032
         }
@@ -597,9 +570,7 @@
       "photos": [
         {
           "height": 1200,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1800
         }
@@ -613,12 +584,7 @@
       "rating": 4.4,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 3042,
       "vicinity": "17 West Adams Street, Chicago"
     },
@@ -648,9 +614,7 @@
       "photos": [
         {
           "height": 1512,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2016
         }
@@ -664,12 +628,7 @@
       "rating": 4.6,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 2329,
       "vicinity": "565 West Jackson Boulevard, Chicago"
     },
@@ -697,9 +656,7 @@
       "photos": [
         {
           "height": 6656,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 13312
         }
@@ -747,9 +704,7 @@
       "photos": [
         {
           "height": 717,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1080
         }
@@ -796,9 +751,7 @@
       "photos": [
         {
           "height": 2048,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1365
         }
@@ -849,9 +802,7 @@
       "photos": [
         {
           "height": 2667,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 4000
         }
@@ -865,12 +816,7 @@
       "rating": 4.5,
       "reference": "",
       "scope": "",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 2064,
       "vicinity": "445 North Clark Street, Chicago"
     },
@@ -898,9 +844,7 @@
       "photos": [
         {
           "height": 768,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1024
         }
@@ -950,9 +894,7 @@
       "photos": [
         {
           "height": 757,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 1024
         }
@@ -1002,9 +944,7 @@
       "photos": [
         {
           "height": 1533,
-          "html_attributions": [
-            ""
-          ],
+          "html_attributions": [""],
           "photo_reference": "",
           "width": 2239
         }

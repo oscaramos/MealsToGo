@@ -1,4 +1,4 @@
-import { mocks, mockImages } from "./mock";
+import { mockImages, mocks } from "./mock";
 import { IRestaurantsResponse, IRestaurantTransformed } from "./restaurants";
 
 export const restaurantsRequest = async (

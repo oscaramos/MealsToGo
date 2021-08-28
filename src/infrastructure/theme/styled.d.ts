@@ -1,4 +1,5 @@
 import "styled-components";
+
 import { theme } from "./index";
 
 type DefaultThemeInternal = typeof theme;

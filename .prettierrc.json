@@ -1,4 +1,13 @@
 {
   "semi": true,
-  "singleQuote": false
+  "singleQuote": false,
+  "importOrder": [
+    "^@components/(.*)$",
+    "^@features/(.*)$",
+    "^@infrastructure/(.*)$",
+    "^@services/(.*)$",
+    "^@assets/(.*)$",
+    "^[./]"],
+  "importOrderSeparation": true,
+  "experimentalBabelParserPluginsList" : ["jsx", "typescript"]
 }

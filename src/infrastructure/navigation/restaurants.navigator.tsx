@@ -1,13 +1,14 @@
-import React from "react";
 import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-import { RestaurantsScreen } from "@features/restaurant/screens/restaurants.screen";
+import React from "react";
+
 import {
   IRestaurantDetailsScreenProps,
   RestaurantDetailsScreen,
 } from "@features/restaurant/screens/restaurant-details.screen";
+import { RestaurantsScreen } from "@features/restaurant/screens/restaurants.screen";
 
 export type RestaurantsStackParamList = {
   restaurants: undefined;

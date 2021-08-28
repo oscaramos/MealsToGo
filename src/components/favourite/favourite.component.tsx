@@ -1,10 +1,10 @@
-import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-
-import { FavouriteContainer } from "./favourite.styles";
+import React from "react";
 
 import { useFavourites } from "@services/favourites/favourites.context";
 import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+
+import { FavouriteContainer } from "./favourite.styles";
 
 type Props = {
   restaurant: IRestaurantTransformed;

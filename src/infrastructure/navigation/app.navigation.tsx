@@ -1,9 +1,10 @@
-import React from "react";
 import AppLoading from "expo-app-loading";
+import React from "react";
+
+import { useAuthentication } from "@services/authentication/authentication.context";
 
 import { AppNavigator } from "./app.navigator";
 import { AuthenticationNavigator } from "./authentication.navigator";
-import { useAuthentication } from "@services/authentication/authentication.context";
 
 export const AppNavigation = () => {
   const { user, loading } = useAuthentication();

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
+import styled from "styled-components/native";
 
 import { useLocation } from "@services/location/location.context";
 

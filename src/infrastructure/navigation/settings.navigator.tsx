@@ -1,10 +1,10 @@
-import React from "react";
-import { SettingsScreen } from "@features/settings/screens/settings.screen";
-
 import {
-  createStackNavigator,
   CardStyleInterpolators,
+  createStackNavigator,
 } from "@react-navigation/stack";
+import React from "react";
+
+import { SettingsScreen } from "@features/settings/screens/settings.screen";
 
 export type SettingsStackParamList = {
   settings: undefined;

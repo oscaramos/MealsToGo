@@ -1,8 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { IRestaurantTransformed } from "../restaurants/restaurants";
 import { useAuthentication } from "../authentication/authentication.context";
+import { IRestaurantTransformed } from "../restaurants/restaurants";
 
 type Return = {
   favourites: IRestaurantTransformed[];
