@@ -1,10 +1,13 @@
 import React from "react";
+import { View } from "react-native";
+import LottieView from "lottie-react-native";
 import styled from "styled-components/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { View } from "react-native";
+
 import { AuthenticationStackParamList } from "@infrastructure/navigation/authentication.navigator";
 import {
   AccountBackground,
+  AnimationWrapper,
   AccountCard,
   AuthButton,
   Title,
@@ -28,6 +31,15 @@ export function AccountScreen({ navigation }: Props) {
   return (
     <Container>
       <AccountBackground>
+        <AnimationWrapper>
+          <LottieView
+            key="animation"
+            autoPlay
+            loop
+            resizeMode="cover"
+            source={require("@assets/watermelon.json")}
+          />
+        </AnimationWrapper>
         <Title>Meals To Go</Title>
         <AccountCard>
           <AuthButton
