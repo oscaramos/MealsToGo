@@ -1,13 +1,13 @@
 import { Coords } from "../services";
 
-export interface IRestaurantsResponse {
+export interface RestaurantsResponse {
   html_attributions: any[];
   next_page_token: string;
-  results: IRestaurant[];
+  results: BackendRestaurant[];
   status: string;
 }
 
-export interface IRestaurant {
+export interface BackendRestaurant {
   ix?: string;
   icon: string;
   name: string;
@@ -43,7 +43,7 @@ export interface IRestaurant {
   business_status?: "CLOSED_TEMPORARILY" | "OPERATIONAL";
 }
 
-export interface IRestaurantTransformed extends IRestaurant {
+export interface Restaurant extends BackendRestaurant {
   isOpenNow: boolean;
   isClosedTemporarily: boolean;
   photo: string;

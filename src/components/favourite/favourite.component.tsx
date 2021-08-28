@@ -2,15 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 
 import { useFavourites } from "@services/favourites/favourites.context";
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { Restaurant } from "@services/restaurants/restaurants";
 
 import { FavouriteContainer } from "./favourite.styles";
 
-export function Favourite({
-  restaurant,
-}: {
-  restaurant: IRestaurantTransformed;
-}) {
+export function Favourite({ restaurant }: { restaurant: Restaurant }) {
   const {
     isFavourite,
     addToFavourites,

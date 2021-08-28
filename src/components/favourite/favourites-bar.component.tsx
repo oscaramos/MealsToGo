@@ -3,7 +3,7 @@ import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 import { useFavourites } from "@services/favourites/favourites.context";
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { Restaurant } from "@services/restaurants/restaurants";
 
 import { Spacer } from "../Spacer";
 import { Text } from "../typography/text.component";
@@ -16,7 +16,7 @@ const Container = styled.View`
 export function FavouritesBar({
   onDetail,
 }: {
-  onDetail: (restaurant: IRestaurantTransformed) => void;
+  onDetail: (restaurant: Restaurant) => void;
 }) {
   const { favourites } = useFavourites();
 

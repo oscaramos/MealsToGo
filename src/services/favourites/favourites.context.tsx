@@ -2,16 +2,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { useAuthentication } from "../authentication/authentication.context";
-import { IRestaurantTransformed } from "../restaurants/restaurants";
+import { Restaurant } from "../restaurants/restaurants";
 
 const FavouritesContext = createContext<
   | {
-      favourites: IRestaurantTransformed[];
-      addToFavourites: (newRestaurant: IRestaurantTransformed) => void;
-      removeFromFavourites: (
-        restaurantToRemove: IRestaurantTransformed
-      ) => void;
-      isFavourite: (restaurant: IRestaurantTransformed) => boolean;
+      favourites: Restaurant[];
+      addToFavourites: (newRestaurant: Restaurant) => void;
+      removeFromFavourites: (restaurantToRemove: Restaurant) => void;
+      isFavourite: (restaurant: Restaurant) => boolean;
     }
   | undefined
 >(undefined);
@@ -22,13 +20,13 @@ export function FavouritesProvider({
   children: React.ReactNode;
 }) {
   const { user } = useAuthentication();
-  const [favourites, setFavourites] = useState<IRestaurantTransformed[]>([]);
+  const [favourites, setFavourites] = useState<Restaurant[]>([]);
 
-  const add = (newRestaurant: IRestaurantTransformed) => {
+  const add = (newRestaurant: Restaurant) => {
     setFavourites((prev) => [...prev, newRestaurant]);
   };
 
-  const remove = (restaurantToRemove: IRestaurantTransformed) => {
+  const remove = (restaurantToRemove: Restaurant) => {
     setFavourites((prev) =>
       prev.filter(
         (restaurant) => restaurant.place_id !== restaurantToRemove.place_id
@@ -36,7 +34,7 @@ export function FavouritesProvider({
     );
   };
 
-  const isFavourite = (restaurant: IRestaurantTransformed) => {
+  const isFavourite = (restaurant: Restaurant) => {
     return favourites.some(
       (favourite) => restaurant.place_id === favourite.place_id
     );

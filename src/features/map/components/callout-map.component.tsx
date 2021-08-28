@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 
 import { Text } from "@components/typography/text.component";
 
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { Restaurant } from "@services/restaurants/restaurants";
 
 const Container = styled.View`
   padding: 10px;
@@ -35,11 +35,7 @@ function Image(props: React.ComponentProps<typeof RNImage>) {
   );
 }
 
-export function CalloutMap({
-  restaurant,
-}: {
-  restaurant: IRestaurantTransformed;
-}) {
+export function CalloutMap({ restaurant }: { restaurant: Restaurant }) {
   return (
     <Container>
       <Image source={{ uri: restaurant.photo }} />

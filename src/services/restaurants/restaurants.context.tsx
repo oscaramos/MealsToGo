@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 import useAsync from "react-use/lib/useAsync";
 
 import { useLocation } from "../location/location.context";
-import { IRestaurantTransformed } from "./restaurants";
+import { Restaurant } from "./restaurants";
 import {
   restaurantsRequest,
   restaurantsTransform,
@@ -10,7 +10,7 @@ import {
 
 const RestaurantsContext = createContext<
   | {
-      restaurants?: IRestaurantTransformed[];
+      restaurants?: Restaurant[];
       loading: boolean;
       error?: string;
     }

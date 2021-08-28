@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { Restaurant } from "@services/restaurants/restaurants";
 
 import { Text } from "../../typography/text.component";
 
@@ -23,7 +23,7 @@ const Title = styled(Text as any)`
 export function RestaurantInfoCompacted({
   restaurant,
 }: {
-  restaurant: IRestaurantTransformed;
+  restaurant: Restaurant;
 }) {
   return (
     <Container>

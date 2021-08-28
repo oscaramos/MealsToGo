@@ -6,7 +6,7 @@ import { Spacer } from "@components/Spacer";
 import { Favourite } from "@components/favourite/favourite.component";
 import { Text } from "@components/typography/text.component";
 
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { Restaurant } from "@services/restaurants/restaurants";
 
 import open from "../../../../assets/open";
 import star from "../../../../assets/star";
@@ -22,7 +22,7 @@ import {
   Stars,
 } from "./restaurant-info-card.styles";
 
-export function RestaurantInfoCard({ item }: { item: IRestaurantTransformed }) {
+export function RestaurantInfoCard({ item }: { item: Restaurant }) {
   const {
     name: title,
     vicinity: address,

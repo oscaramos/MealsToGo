@@ -1,11 +1,11 @@
 import { mockImages, mocks } from "./mock";
-import { IRestaurantsResponse, IRestaurantTransformed } from "./restaurants";
+import { RestaurantsResponse, Restaurant } from "./restaurants";
 
 export const restaurantsRequest = async (
   location: string = "37.7749295,-122.4194155"
 ) => {
   // @ts-ignore
-  const mock: IRestaurantsResponse | undefined = mocks[location];
+  const mock: RestaurantsResponse | undefined = mocks[location];
 
   if (!mock) {
     throw "not found";
@@ -14,8 +14,8 @@ export const restaurantsRequest = async (
 };
 
 export const restaurantsTransform = (
-  response: IRestaurantsResponse
-): IRestaurantTransformed[] => {
+  response: RestaurantsResponse
+): Restaurant[] => {
   return response.results.map((restaurant) => ({
     ...restaurant,
     isOpenNow: !!restaurant.opening_hours?.open_now,

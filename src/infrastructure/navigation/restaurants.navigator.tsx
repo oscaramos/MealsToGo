@@ -7,12 +7,12 @@ import React from "react";
 import { RestaurantDetailsScreen } from "@features/restaurant/screens/restaurant-details.screen";
 import { RestaurantsScreen } from "@features/restaurant/screens/restaurants.screen";
 
-import { IRestaurantTransformed } from "@services/restaurants/restaurants";
+import { Restaurant } from "@services/restaurants/restaurants";
 
 export type RestaurantsStackParamList = {
   restaurants: undefined;
   "restaurant-details": {
-    item: IRestaurantTransformed;
+    item: Restaurant;
   };
 };
 
