@@ -4,6 +4,7 @@ import { FlatList, TouchableOpacity } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import { useTheme } from "styled-components";
 
+import { FadeInView } from "@components/animations/fade.animation";
 import { FavouritesBar } from "@components/favourite/favourites-bar.component";
 
 import { RestaurantsStackParamList } from "@infrastructure/navigation/restaurants.navigator";
@@ -68,7 +69,9 @@ export function RestaurantsScreen({
                     })
                   }
                 >
-                  <RestaurantInfoCard {...props} />
+                  <FadeInView>
+                    <RestaurantInfoCard {...props} />
+                  </FadeInView>
                 </TouchableOpacity>
               </RestaurantInfoCardContainer>
             )}
