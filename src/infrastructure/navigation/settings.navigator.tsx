@@ -4,6 +4,7 @@ import {
 } from "@react-navigation/stack";
 import React from "react";
 
+import { FavouritesScreen } from "@features/settings/screens/favourites.screen";
 import { SettingsScreen } from "@features/settings/screens/settings.screen";
 
 export type SettingsStackParamList = {
@@ -28,7 +29,7 @@ export const SettingsNavigator = () => {
         name="settings"
         component={SettingsScreen}
       />
-      <SettingsStack.Screen name="favourites" component={() => null} />
+      <SettingsStack.Screen name="favourites" component={FavouritesScreen} />
     </SettingsStack.Navigator>
   );
 };
