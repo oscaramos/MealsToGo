@@ -1,8 +1,7 @@
 import { LocationResponse } from "./location";
 import { locations } from "./mocks/location.mock";
 
-export const locationRequest = async (searchTerm: string) => {
-  // @ts-ignore
+export const locationRequest = async (searchTerm: keyof typeof locations) => {
   const response: LocationResponse | undefined = locations[searchTerm];
   if (!response) {
     throw "Location not found";

@@ -9,7 +9,7 @@ export interface RestaurantsResponse {
 
 export interface BackendRestaurant {
   ix?: string;
-  icon: string;
+  icon?: string;
   name: string;
   scope?: string;
   rating?: number;
@@ -33,14 +33,14 @@ export interface BackendRestaurant {
       southwest: Coords;
     };
   };
-  plus_code: {
+  plus_code?: {
     compound_code: string;
     global_code: string;
   };
   opening_hours?: {
     open_now: boolean;
   };
-  business_status?: "CLOSED_TEMPORARILY" | "OPERATIONAL";
+  business_status?: "CLOSED_TEMPORARILY" | "OPERATIONAL" | string;
 }
 
 export interface Restaurant extends BackendRestaurant {

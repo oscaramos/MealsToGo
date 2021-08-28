@@ -2,10 +2,9 @@ import { mockImages, mocks } from "./mock";
 import { RestaurantsResponse, Restaurant } from "./restaurants";
 
 export const restaurantsRequest = async (
-  location: string = "37.7749295,-122.4194155"
+  location: keyof typeof mocks = "37.7749295,-122.4194155"
 ) => {
-  // @ts-ignore
-  const mock: RestaurantsResponse | undefined = mocks[location];
+  const mock: RestaurantsResponse = mocks[location];
 
   if (!mock) {
     throw "not found";
