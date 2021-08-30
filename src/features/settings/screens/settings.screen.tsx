@@ -1,5 +1,6 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import { Avatar, List } from "react-native-paper";
 import styled from "styled-components/native";
 
@@ -36,7 +37,9 @@ export function SettingsScreen({
   return (
     <Container>
       <AvatarContainer>
-        <AvatarIcon size={180} icon="human" />
+        <TouchableOpacity onPress={() => navigation.navigate("camera")}>
+          <AvatarIcon size={180} icon="human" />
+        </TouchableOpacity>
         <Spacer position="top" size="large">
           <Text variant="label">{user?.email}</Text>
         </Spacer>
