@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { Camera } from "expo-camera";
 import React, { useEffect, useRef, useState } from "react";
 import { View } from "react-native";
@@ -6,19 +8,29 @@ import styled from "styled-components/native";
 
 import { Text } from "@components/typography/text.component";
 
+import { SettingsStackParamList } from "@infrastructure/navigation/settings.navigator";
+
+import { useAuthentication } from "@services/authentication/authentication.context";
+
 const ProfileCamera = styled(Camera)`
   width: 100%;
   height: 100%;
 `;
 
-export function CameraScreen() {
+export function CameraScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<SettingsStackParamList, "camera">;
+}) {
   const [hasPermission, setHasPermission] = useState<null | boolean>(null);
   const cameraRef = useRef<Camera | null>();
+  const { user } = useAuthentication();
 
   const snap = async () => {
-    if (cameraRef.current) {
+    if (cameraRef.current && user) {
       const photo = await cameraRef.current.takePictureAsync();
-      console.log(photo);
+      await AsyncStorage.setItem(`${user.uid}-photo`, photo.uri);
+      navigation.goBack();
     }
   };
 
