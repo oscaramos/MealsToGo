@@ -31,8 +31,20 @@ export const SettingsNavigator = () => {
         name="settings"
         component={SettingsScreen}
       />
-      <SettingsStack.Screen name="favourites" component={FavouritesScreen} />
-      <SettingsStack.Screen name="camera" component={CameraScreen} />
+      <SettingsStack.Screen
+        options={{
+          title: "Favourites",
+        }}
+        name="favourites"
+        component={FavouritesScreen}
+      />
+      <SettingsStack.Screen
+        options={{
+          title: "Camera",
+        }}
+        name="camera"
+        component={CameraScreen}
+      />
     </SettingsStack.Navigator>
   );
 };
