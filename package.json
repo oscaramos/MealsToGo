@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "postinstall": "patch-package",
-    "test": "jest"
+    "test": "jest",
+    "publish-app": "expo publish"
   },
   "dependencies": {
     "@expo-google-fonts/lato": "^0.1.0",
