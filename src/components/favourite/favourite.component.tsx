@@ -2,7 +2,8 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 
 import { useFavourites } from "@services/favourites/favourites.context";
-import { Restaurant } from "@services/restaurants/restaurants";
+
+import { Restaurant } from "@globalTypes/restaurants";
 
 import { FavouriteContainer } from "./favourite.styles";
 

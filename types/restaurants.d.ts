@@ -1,4 +1,4 @@
-import { Coords } from "../../../types/services";
+import { Coords } from "./services";
 
 export interface RestaurantsResponse {
   html_attributions: any[];
@@ -41,10 +41,10 @@ export interface BackendRestaurant {
     open_now: boolean;
   };
   business_status?: "CLOSED_TEMPORARILY" | "OPERATIONAL" | string;
+  photo: string;
 }
 
 export interface Restaurant extends BackendRestaurant {
   isOpenNow: boolean;
   isClosedTemporarily: boolean;
-  photo: string;
 }

@@ -1,8 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
+import { Restaurant } from "@globalTypes/restaurants";
+
 import { useAuthentication } from "../authentication/authentication.context";
-import { Restaurant } from "../restaurants/restaurants";
 
 const FavouritesContext = createContext<
   | {

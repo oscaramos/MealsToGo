@@ -7,7 +7,7 @@ import React from "react";
 import { RestaurantDetailsScreen } from "@features/restaurant/screens/restaurant-details.screen";
 import { RestaurantsScreen } from "@features/restaurant/screens/restaurants.screen";
 
-import { Restaurant } from "@services/restaurants/restaurants";
+import { Restaurant } from "@globalTypes/restaurants";
 
 export type RestaurantsStackParamList = {
   restaurants: undefined;

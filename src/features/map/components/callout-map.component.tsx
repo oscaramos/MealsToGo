@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 
 import { Text } from "@components/typography/text.component";
 
-import { Restaurant } from "@services/restaurants/restaurants";
+import { Restaurant } from "@globalTypes/restaurants";
 
 const Container = styled.View`
   padding: 10px;

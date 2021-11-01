@@ -3,7 +3,8 @@ import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 import { useFavourites } from "@services/favourites/favourites.context";
-import { Restaurant } from "@services/restaurants/restaurants";
+
+import { Restaurant } from "@globalTypes/restaurants";
 
 import { Spacer } from "../Spacer";
 import { Text } from "../typography/text.component";

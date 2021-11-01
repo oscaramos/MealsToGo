@@ -1,8 +1,9 @@
 import React, { createContext, useContext } from "react";
 import useAsync from "react-use/lib/useAsync";
 
+import { Restaurant } from "@globalTypes/restaurants";
+
 import { useLocation } from "../location/location.context";
-import { Restaurant } from "./restaurants";
 import {
   restaurantsRequest,
   restaurantsTransform,

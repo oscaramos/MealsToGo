@@ -6,7 +6,7 @@ import { Spacer } from "@components/Spacer";
 import { Favourite } from "@components/favourite/favourite.component";
 import { Text } from "@components/typography/text.component";
 
-import { Restaurant } from "@services/restaurants/restaurants";
+import { Restaurant } from "@globalTypes/restaurants";
 
 import open from "../../../../assets/open";
 import star from "../../../../assets/star";

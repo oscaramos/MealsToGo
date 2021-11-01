@@ -6,6 +6,7 @@
     "^@features/(.*)$",
     "^@infrastructure/(.*)$",
     "^@services/(.*)$",
+    "^@globalTypes/(.*)$",
     "^@assets/(.*)$",
     "^[./]"],
   "importOrderSeparation": true,

@@ -15,6 +15,7 @@
       "@features/*": ["./features/*"],
       "@infrastructure/*": ["./infrastructure/*"],
       "@services/*": ["./services/*"],
+      "@globalTypes/*": ["../types/*"],
     }
   },
   "types": ["jest", "styled-components-react-native"]

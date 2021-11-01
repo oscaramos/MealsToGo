@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import { Restaurant } from "@services/restaurants/restaurants";
+import { Restaurant } from "@globalTypes/restaurants";
 
 import { Text } from "../../typography/text.component";
 
