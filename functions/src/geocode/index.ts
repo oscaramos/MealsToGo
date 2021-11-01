@@ -1,15 +1,38 @@
+import { Client } from "@googlemaps/google-maps-services-js";
 import * as functions from "firebase-functions";
 import * as url from "url";
 
 import { locations as locationsMock } from "./geocode.mock";
 
-export function geocodeRequest(
+export async function geocodeRequest(
   request: functions.https.Request,
-  response: functions.Response
+  response: functions.Response,
+  client: Client
 ) {
-  const { city } = url.parse(request.url, true).query;
   // @ts-ignore
-  const locationMock = locationsMock[city.toLowerCase()];
+  const { city, mock }: { city: string; mock: string } = url.parse(
+    request.url,
+    true
+  ).query;
 
-  response.json(locationMock);
+  if (mock === "true") {
+    const locationMock = locationsMock[city.toLowerCase()];
+
+    return response.json(locationMock);
+  }
+
+  try {
+    const res = await client.geocode({
+      params: {
+        address: city,
+        key: functions.config().google.key,
+      },
+      timeout: 1000,
+    });
+
+    return response.json(res.data);
+  } catch (e) {
+    response.status(400);
+    return response.send(e.response.data.error_message);
+  }
 }
