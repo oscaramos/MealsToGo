@@ -1,4 +1,4 @@
-import { LocationResponse } from "../location";
+import { LocationResponse } from "../../../types/location";
 
 export const locations: Record<string, LocationResponse> = {
   antwerp: {

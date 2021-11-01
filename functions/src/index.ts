@@ -1,6 +1,8 @@
+// noinspection JSUnusedGlobalSymbols
 import * as functions from "firebase-functions";
 
-export const helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info("Hello logs!", { structuredData: true });
-  response.send("Hello from A!");
+import { geocodeRequest } from "./geocode";
+
+export const geocode = functions.https.onRequest((request, response) => {
+  geocodeRequest(request, response);
 });

@@ -1,15 +1,28 @@
-import { LocationResponse } from "./location";
-import { locations } from "./mocks/location.mock";
+// @ts-ignore
+import camelize from "camelize";
 
-export const locationRequest = async (searchTerm: keyof typeof locations) => {
-  const response: LocationResponse | undefined = locations[searchTerm];
-  if (!response) {
-    throw "Location not found";
+import { LocationResponse } from "../../../types/location";
+
+export const locationRequest = async (
+  searchTerm: string
+): Promise<LocationResponse> => {
+  try {
+    // using a temporally ngrok proxy
+    const response = await fetch(
+      `http://f119-2800-200-f408-b030-6eb5-5c20-7f30-26eb.ngrok.io/mealstogo-eeb03/us-central1/geocode?city=${searchTerm}`
+    );
+    return await response.json();
+  } catch (e) {
+    console.error(e);
+    return {
+      results: [],
+    };
   }
-  return response;
 };
 
 export const locationTransform = (response: LocationResponse) => {
-  const geometry = response.results[0].geometry;
+  const formattedResponse = camelize(response);
+  const geometry = formattedResponse.results[0].geometry ?? {};
+
   return { ...geometry.location, viewport: geometry.viewport };
 };

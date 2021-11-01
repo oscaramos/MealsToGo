@@ -1,4 +1,4 @@
-import { Coords } from "../services";
+import { Coords } from "../../../types/services";
 
 export interface RestaurantsResponse {
   html_attributions: any[];

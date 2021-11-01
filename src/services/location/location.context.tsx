@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import useAsync from "react-use/lib/useAsync";
 
-import { Coords, ViewPort } from "../services";
+import { Coords, ViewPort } from "../../../types/services";
 import { locationRequest, locationTransform } from "./location.service";
 
 const LocationContext = createContext<

@@ -1,4 +1,4 @@
-import { Coords, ViewPort } from "../services";
+import { Coords, ViewPort } from "./services";
 
 export interface LocationResponse {
   results: Location[];

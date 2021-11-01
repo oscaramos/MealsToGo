@@ -21,6 +21,7 @@
     "@types/jest": "^26.0.21",
     "@types/styled-components": "^5.1.9",
     "@types/styled-components-react-native": "^5.1.1",
+    "camelize": "^1.0.0",
     "expo": "~40.0.0",
     "expo-app-loading": "^1.0.1",
     "expo-camera": "~9.1.0",
