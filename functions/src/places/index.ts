@@ -6,7 +6,7 @@ import { BackendRestaurant } from "../../../types/restaurants";
 import { mocks } from "./mock";
 
 const addGoogleImage = (restaurant: BackendRestaurant) => {
-  const ref = restaurant.photos[0].photo_reference;
+  const ref = restaurant.photos?.[0]?.photo_reference;
   return {
     ...restaurant,
     photo: !ref
@@ -50,6 +50,7 @@ export async function placesRequest(
     res.data.results = res.data.results.map(addGoogleImage);
     return response.json(res.data);
   } catch (e) {
+    console.log(e);
     response.status(400);
     return response.send(e.response.data.error_message);
   }
