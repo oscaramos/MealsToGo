@@ -4,6 +4,10 @@ Locate and mark the best restaurants around the world making use of the [google 
 
 # Screenshots
 
+<img src="./docs/MealsToGo-Cover.png" alt='Cover' width='800' /> 
+
+<img src="./docs/MealsToGo-Mockup.png" alt='Mockup' width='800' /> 
+
 # Features
 
 * Authentication and user accounts using Firebase and Firebase Functions
